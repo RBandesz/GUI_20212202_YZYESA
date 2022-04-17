@@ -16,18 +16,18 @@ namespace SpaceBunnyJump.Classes
         public int Ysize;
         public bool isTouchedByPlayer;
 
-        public Platform(PointF pos)
+        public Platform(PointF position)
         {
             platform = Image.FromFile("Textures/platform.png");
             Xsize = 60;
             Ysize = 12;
-            transform = new Transform(pos, new Size(Xsize, Ysize));
+            transform = new Transform(position, new Size(Xsize, Ysize));
             isTouchedByPlayer = false;
         }
 
-        public void DrawSprite(Graphics g)
+        public void DrawSprite(Graphics graphics)
         {
-            g.DrawImage(platform, transform.position.X, transform.position.Y, transform.size.Width, transform.size.Height);
+            graphics.DrawImage(platform, transform.position.X, transform.position.Y, transform.size.Width, transform.size.Height);
         }
     }
 }
