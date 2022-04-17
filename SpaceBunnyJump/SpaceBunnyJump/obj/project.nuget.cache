@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "/7MbWdHavoezIq1ShXyw2TlvYaUCocKcomfDWwzPpp1NweofzUhm3oQpCJwOPDZDd3uqN8QxtTEL2suzSqTy+A==",
+  "dgSpecHash": "+7TNKEJcKZMPRAT+t7B2UOSsekmjECVgrkdn91ceTwbfpIw1I8YtwZ0Kq9T2dLRxEn5QF4AYtMGjPC821WogLg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ZseZso\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\ZseZso\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
