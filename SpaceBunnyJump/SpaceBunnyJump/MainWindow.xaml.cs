@@ -32,7 +32,7 @@ namespace SpaceBunnyJump
             logic = new GameLogic();
             display.SetupModel(logic);
 
-
+            
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
         }

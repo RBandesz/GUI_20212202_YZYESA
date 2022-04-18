@@ -1,4 +1,5 @@
-﻿using SpaceBunnyJump.Logic;
+﻿using SpaceBunnyJump.Classes;
+using SpaceBunnyJump.Logic;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,7 +31,14 @@ namespace SpaceBunnyJump.Renderer
         {
             get
             {
-                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "background.jpg"), UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "background.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+        public Brush Platform
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "platform.png"), UriKind.RelativeOrAbsolute)));
             }
         }
         protected override void OnRender(DrawingContext drawingContext)
@@ -39,6 +47,8 @@ namespace SpaceBunnyJump.Renderer
             if (model != null && size.Width > 50 && size.Height > 50)
             {
                 drawingContext.DrawRectangle(SpaceBrush, null, new Rect(0, 0, size.Width, size.Height));
+                drawingContext.DrawRectangle(Platform, null, new Rect(0, 0, 80, 30));
+
 
                 //drawingContext.Pop();
             }

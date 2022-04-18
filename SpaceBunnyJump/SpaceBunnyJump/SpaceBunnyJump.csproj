@@ -9,6 +9,7 @@
   <ItemGroup>
     <None Remove="Textures\alien.png" />
     <None Remove="Textures\background.jpg" />
+    <None Remove="Textures\background.png" />
     <None Remove="Textures\bullet.png" />
     <None Remove="Textures\carrot.png" />
     <None Remove="Textures\platform.png" />
@@ -19,7 +20,7 @@
     <Content Include="Textures\alien.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Textures\background.jpg">
+    <Content Include="Textures\background.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Textures\bullet.png">

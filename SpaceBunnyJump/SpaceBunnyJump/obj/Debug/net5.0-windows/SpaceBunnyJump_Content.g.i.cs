@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/alien.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/background.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/background.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/bullet.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/carrot.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/player.png")]

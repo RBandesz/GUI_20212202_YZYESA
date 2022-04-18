@@ -28,9 +28,9 @@ C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJu
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump.pdb
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump.genruntimeconfig.cache
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Textures\alien.png
-C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Textures\background.jpg
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump_Content.g.cs
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Textures\bullet.png
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Textures\carrot.png
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Textures\player.png
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Textures\platform.png
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Textures\background.png
