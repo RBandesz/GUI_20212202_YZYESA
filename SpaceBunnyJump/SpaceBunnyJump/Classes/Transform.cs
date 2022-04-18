@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpaceBunnyJump.Classes
 {
-    class Transform
+    public class Transform
     {
         public PointF position;
         public Size size;
