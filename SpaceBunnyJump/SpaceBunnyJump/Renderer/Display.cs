@@ -46,11 +46,28 @@ namespace SpaceBunnyJump.Renderer
             base.OnRender(drawingContext);
             if (model != null && size.Width > 50 && size.Height > 50)
             {
+
                 drawingContext.DrawRectangle(SpaceBrush, null, new Rect(0, 0, size.Width, size.Height));
-                drawingContext.DrawRectangle(Platform, null, new Rect(0, 0, 80, 30));
+                drawingContext.DrawRectangle(Platform, null, new Rect(0, 120, 80, 30));
+
+                for (int i = 0; i < model.GameMap.GetLength(0); i++)
+                {
+                    for (int j = 0; j < model.GameMap.GetLength(1); j++)
+                    {
+                        ImageBrush brush = new ImageBrush();
+                        switch (model.GameMap[i, j])
+                        {
+                            case GameLogic.GameItems.platform:
+                                drawingContext.DrawRectangle(Platform, null, new Rect(i, j, 80, 30));
+                                break;
+                        }
+
+                    }
+                }
 
 
                 //drawingContext.Pop();
+
             }
         }
 
