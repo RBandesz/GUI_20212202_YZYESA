@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SpaceBunnyJump.Logic;
+using SpaceBunnyJump.Models;
 
 namespace SpaceBunnyJump
 {
@@ -22,6 +23,7 @@ namespace SpaceBunnyJump
     public partial class MainWindow : Window
     {
         GameLogic logic;
+        PlayerMovement movement;
         public MainWindow()
         {
             InitializeComponent();
@@ -31,15 +33,17 @@ namespace SpaceBunnyJump
         {
             logic = new GameLogic();
             display.SetupModel(logic);
-
+            movement = new PlayerMovement(logic);
 
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
-            
+           
+        }
 
-            
-
-
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            movement.KeyPressed(e.Key);
+            display.InvalidateVisual();
         }
     }
 }

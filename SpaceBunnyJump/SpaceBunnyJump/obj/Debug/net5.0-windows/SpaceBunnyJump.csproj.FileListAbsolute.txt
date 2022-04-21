@@ -77,3 +77,10 @@ C:\Users\R András\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunn
 C:\Users\R András\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump.pdb
 C:\Users\R András\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump.genruntimeconfig.cache
 C:\Users\R András\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Microsoft.Toolkit.Mvvm.dll
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Microsoft.Toolkit.Mvvm.dll
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Microsoft.VisualStudio.LiveShare.dll
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\System.Composition.AttributedModel.dll
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\System.Composition.Convention.dll
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\System.Composition.Hosting.dll
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\System.Composition.Runtime.dll
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\System.Composition.TypedParts.dll

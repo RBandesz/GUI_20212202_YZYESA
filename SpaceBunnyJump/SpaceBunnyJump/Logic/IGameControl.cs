@@ -7,9 +7,8 @@ using static SpaceBunnyJump.Logic.GameLogic;
 
 namespace SpaceBunnyJump.Logic
 {
-    internal interface IGameModel
+    internal interface IGameControl
     {
-        GameItems[,] VisualMap { get; set; }
-        event EventHandler Changed;
+        void Move(Directions directions);
     }
 }

@@ -7,7 +7,7 @@ using SpaceBunnyJump.Models;
 
 namespace SpaceBunnyJump.Logic
 {
-    internal  class GameLogic : IGameModel
+    internal  class GameLogic : IGameModel, IGameControl
     {
         public event EventHandler Changed;
         public event EventHandler GameOver;
@@ -17,8 +17,8 @@ namespace SpaceBunnyJump.Logic
 
         public GameLogic()
         {
-            VisualMap = new GameItems[500, 800];
-            LogicMap = new GameItems[500, 800];
+            VisualMap = new GameItems[500,800];
+            LogicMap = new GameItems[500,800];
             VisualMap = TestMapMaker(VisualMap, LogicMap);
 
         }
@@ -43,6 +43,7 @@ namespace SpaceBunnyJump.Logic
 
         private GameItems[,] TestMapMaker(GameItems[,] GameMap, GameItems[,] MapMatrix)
         {
+            int counter = 0;
             for (int i = 0; i < GameMap.GetLength(0); i++)
             {
                 for (int j = 0; j < GameMap.GetLength(1); j++)
@@ -51,6 +52,11 @@ namespace SpaceBunnyJump.Logic
                     {
                         GameMap[i, j] = GameItems.platform;
                         MapMatrix[i, j] = GameItems.platform;
+                    }
+                    else if (i  == 250 && j == 600)
+                    {
+                        GameMap[i, j] = GameItems.player;
+                        MapMatrix[i, j] = GameItems.player;
                     }
                     else
                     {
@@ -86,19 +92,19 @@ namespace SpaceBunnyJump.Logic
                 case Directions.jump:
                     if (i - 1 >= 0)
                     {
-                        i--;
+                        i=i+80;
                     }
                     break;
                 case Directions.left:
                     if (j - 1 >= 0)
                     {
-                        j--;
+                        j=j-40;
                     }
                     break;
                 case Directions.right:
                     if (j + 1 < LogicMap.GetLength(1))
                     {
-                        j++;
+                        j=j+40;
                     }
                     break;
                 default:

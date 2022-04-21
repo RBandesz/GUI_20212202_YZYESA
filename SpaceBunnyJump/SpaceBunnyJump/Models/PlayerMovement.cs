@@ -16,9 +16,9 @@ namespace SpaceBunnyJump.Models
 {
     internal class PlayerMovement
     {
-        IGameModel control;
+        IGameControl control;
 
-        public PlayerMovement(IGameModel control)
+        public PlayerMovement(IGameControl control)
         {
             this.control = control;
         }
