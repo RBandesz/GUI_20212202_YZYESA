@@ -60,12 +60,12 @@ namespace SpaceBunnyJump.Renderer
                 drawingContext.DrawRectangle(Platform, null, new Rect(0, 120, 80, 30));
                 drawingContext.DrawRectangle(Player, null, new Rect(0, 120, 60, 100));
 
-                for (int i = 0; i < model.GameMap.GetLength(0); i++)
+                for (int i = 0; i < model.VisualMap.GetLength(0); i++)
                 {
-                    for (int j = 0; j < model.GameMap.GetLength(1); j++)
+                    for (int j = 0; j < model.VisualMap.GetLength(1); j++)
                     {
                         ImageBrush brush = new ImageBrush();
-                        switch (model.GameMap[i, j])
+                        switch (model.VisualMap[i, j])
                         {
                             case GameLogic.GameItems.platform:
                                 drawingContext.DrawRectangle(Platform, null, new Rect(i, j, 80, 30));

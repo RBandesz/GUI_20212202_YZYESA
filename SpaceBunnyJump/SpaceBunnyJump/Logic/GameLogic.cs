@@ -17,9 +17,9 @@ namespace SpaceBunnyJump.Logic
 
         public GameLogic()
         {
-            GameMap = new GameItems[500, 800];
-            MapMatrix = new GameItems[500, 800];
-            GameMap = TestMapMaker(GameMap, MapMatrix);
+            VisualMap = new GameItems[500, 800];
+            LogicMap = new GameItems[500, 800];
+            VisualMap = TestMapMaker(VisualMap, LogicMap);
 
         }
 
@@ -37,8 +37,8 @@ namespace SpaceBunnyJump.Logic
         {
             jump, left, right
         }
-        public GameItems[,] GameMap { get; set; }
-        public GameItems[,] MapMatrix { get; set; }
+        public GameItems[,] VisualMap { get; set; }
+        public GameItems[,] LogicMap { get; set; }
 
 
         private GameItems[,] TestMapMaker(GameItems[,] GameMap, GameItems[,] MapMatrix)
@@ -62,11 +62,11 @@ namespace SpaceBunnyJump.Logic
         }
         private int[] WhereAmI()
         {
-            for (int i = 0; i < MapMatrix.GetLength(0); i++)
+            for (int i = 0; i < LogicMap.GetLength(0); i++)
             {
-                for (int j = 0; j < MapMatrix.GetLength(1); j++)
+                for (int j = 0; j < LogicMap.GetLength(1); j++)
                 {
-                    if (MapMatrix[i, j] == GameItems.player)
+                    if (LogicMap[i, j] == GameItems.player)
                     {
                         return new int[] { i, j };
                     }
@@ -96,7 +96,7 @@ namespace SpaceBunnyJump.Logic
                     }
                     break;
                 case Directions.right:
-                    if (j + 1 < MapMatrix.GetLength(1))
+                    if (j + 1 < LogicMap.GetLength(1))
                     {
                         j++;
                     }

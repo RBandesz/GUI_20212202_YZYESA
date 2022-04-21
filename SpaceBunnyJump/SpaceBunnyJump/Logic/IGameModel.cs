@@ -9,7 +9,7 @@ namespace SpaceBunnyJump.Logic
 {
     internal interface IGameModel
     {
-        GameItems[,] GameMap { get; set; }
+        GameItems[,] VisualMap { get; set; }
         event EventHandler Changed;
         void Move(Directions directions);
     }
