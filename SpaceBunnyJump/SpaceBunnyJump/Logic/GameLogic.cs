@@ -16,7 +16,6 @@ namespace SpaceBunnyJump.Logic
         public void SetupSizes(System.Windows.Size area)
         {
             this.area = area;
-
         }
         public enum GameItems
         {
@@ -28,6 +27,8 @@ namespace SpaceBunnyJump.Logic
             jump, left, right
         }
         public GameItems[,] GameMap { get; set; }
+        public GameItems[,] MapLogic { get; set; }
+
 
         private GameItems[,] TestMapMaker(GameItems[,] GameMap)
         {
