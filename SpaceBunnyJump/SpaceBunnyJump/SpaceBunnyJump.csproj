@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Player\Player.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Textures\alien.png" />
     <None Remove="Textures\background.jpg" />
     <None Remove="Textures\background.png" />
@@ -35,6 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.LiveShare" Version="1.1.57" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 

@@ -27,10 +27,10 @@ namespace SpaceBunnyJump.Logic
             jump, left, right
         }
         public GameItems[,] GameMap { get; set; }
-        public GameItems[,] MapLogic { get; set; }
+        public GameItems[,] MapMatrix { get; set; }
 
 
-        private GameItems[,] TestMapMaker(GameItems[,] GameMap)
+        private GameItems[,] TestMapMaker(GameItems[,] GameMap, GameItems[,] MapMatrix)
         {
             for (int i = 0; i < GameMap.GetLength(0); i++)
             {
@@ -39,6 +39,7 @@ namespace SpaceBunnyJump.Logic
                     if (i % 250 == 0 && j % 250 == 0)
                     {
                         GameMap[i, j] = GameItems.platform;
+                        MapMatrix[i, j] = GameItems.platform;
                     }
                     else
                     {
