@@ -41,6 +41,7 @@ namespace SpaceBunnyJump.Renderer
                 return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "platform.png"), UriKind.RelativeOrAbsolute)));
             }
         }
+        //teszt!!!!!!!!!!!!!!!!!!!!
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
