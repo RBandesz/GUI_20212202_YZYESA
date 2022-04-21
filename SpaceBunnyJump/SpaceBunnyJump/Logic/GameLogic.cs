@@ -68,11 +68,11 @@ namespace SpaceBunnyJump.Logic
         }
         private int[] WhereAmI()
         {
-            for (int i = 0; i < LogicMap.GetLength(0); i++)
+            for (int i = 0; i < VisualMap.GetLength(0); i++)
             {
-                for (int j = 0; j < LogicMap.GetLength(1); j++)
+                for (int j = 0; j < VisualMap.GetLength(1); j++)
                 {
-                    if (LogicMap[i, j] == GameItems.player)
+                    if (VisualMap[i, j] == GameItems.player)
                     {
                         return new int[] { i, j };
                     }
@@ -90,40 +90,31 @@ namespace SpaceBunnyJump.Logic
             switch (direction)
             {
                 case Directions.jump:
-                    if (i - 1 >= 0)
+                    if (j - 1 >= 0)
                     {
-                        i=i+80;
+                        j=j-80;
                     }
                     break;
                 case Directions.left:
-                    if (j - 1 >= 0)
+                    if (i - 1 >= 0)
                     {
-                        j=j-40;
+                        i=i-40;
                     }
                     break;
                 case Directions.right:
-                    if (j + 1 < LogicMap.GetLength(1))
+                    if (i + 1 < LogicMap.GetLength(1))
                     {
-                        j=j+40;
+                        i=i+40;
                     }
                     break;
                 default:
                     break;
             }
-            //if (MapMatrix[i, j] == GameItems.platform)
-            //{
-            //    MapMatrix[i, j] = GameItems.player;
-            //    MapMatrix[old_i, old_j] = GameItems.platform;
-            //}
-            //else if (MapMatrix[i, j] == GameItems.door)
-            //{
-            //    //todo level vége
-            //    if (levels.Count > 0)
-            //    {
-            //        LoadNext(levels.Dequeue());
-            //    }
-
-            //}
+            if (VisualMap[i, j] == GameItems.air)
+            {
+                VisualMap[i, j] = GameItems.player;
+                VisualMap[old_i, old_j] = GameItems.air;
+            }
         }
     }
 }

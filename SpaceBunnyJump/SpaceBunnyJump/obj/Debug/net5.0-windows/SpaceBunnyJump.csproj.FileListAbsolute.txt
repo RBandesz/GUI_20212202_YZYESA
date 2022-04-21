@@ -11,12 +11,10 @@ C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJu
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp3.1\System.Drawing.Common.dll
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump.csproj.AssemblyReference.cache
-C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump_MarkupCompile.cache
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump_MarkupCompile.lref
-C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\MainWindow.baml
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump.g.resources
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump.AssemblyInfoInputs.cache
@@ -84,3 +82,5 @@ C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJu
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\System.Composition.Hosting.dll
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\System.Composition.Runtime.dll
 C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\System.Composition.TypedParts.dll
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\MainWindow.baml

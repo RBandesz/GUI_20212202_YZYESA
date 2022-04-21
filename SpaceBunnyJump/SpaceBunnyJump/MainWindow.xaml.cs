@@ -27,13 +27,14 @@ namespace SpaceBunnyJump
         public MainWindow()
         {
             InitializeComponent();
+            logic = new GameLogic();
+            display.SetupModel(logic);
+            movement = new PlayerMovement(logic);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            logic = new GameLogic();
-            display.SetupModel(logic);
-            movement = new PlayerMovement(logic);
+
 
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
