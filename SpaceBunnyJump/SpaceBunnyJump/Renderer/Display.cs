@@ -34,6 +34,15 @@ namespace SpaceBunnyJump.Renderer
                 return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "background.png"), UriKind.RelativeOrAbsolute)));
             }
         }
+
+        public Brush Player
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "player.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+
         public Brush Platform
         {
             get
@@ -49,6 +58,7 @@ namespace SpaceBunnyJump.Renderer
 
                 drawingContext.DrawRectangle(SpaceBrush, null, new Rect(0, 0, size.Width, size.Height));
                 drawingContext.DrawRectangle(Platform, null, new Rect(0, 120, 80, 30));
+                drawingContext.DrawRectangle(Player, null, new Rect(0, 120, 60, 100));
 
                 for (int i = 0; i < model.GameMap.GetLength(0); i++)
                 {

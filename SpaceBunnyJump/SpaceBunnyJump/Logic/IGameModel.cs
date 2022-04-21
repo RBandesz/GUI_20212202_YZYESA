@@ -11,5 +11,6 @@ namespace SpaceBunnyJump.Logic
     {
         GameItems[,] GameMap { get; set; }
         event EventHandler Changed;
+        void Move(Directions directions);
     }
 }

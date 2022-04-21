@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net5.0-windows7.0": {
+      "Microsoft.Toolkit.Mvvm/7.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.Toolkit.Mvvm.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Toolkit.Mvvm.dll": {}
+        }
+      },
       "Microsoft.VisualStudio.LiveShare/1.1.57": {
         "type": "package",
         "dependencies": {
@@ -126,6 +135,32 @@
     }
   },
   "libraries": {
+    "Microsoft.Toolkit.Mvvm/7.1.2": {
+      "sha512": "tUQn6ar9oP7kmYaZ6pWabxpQaqw95Bsf+GG7prEL0y5MV5F60z76lI/Ppps9zcTqwd7e5CrdZBcdfor9WuvohA==",
+      "type": "package",
+      "path": "microsoft.toolkit.mvvm/7.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ThirdPartyNotices.txt",
+        "analyzers/dotnet/cs/Microsoft.Toolkit.Mvvm.SourceGenerators.dll",
+        "analyzers/dotnet/cs/Microsoft.Toolkit.Mvvm.SourceGenerators.pdb",
+        "analyzers/dotnet/cs/Microsoft.Toolkit.Mvvm.SourceGenerators.xml",
+        "lib/net5.0/Microsoft.Toolkit.Mvvm.dll",
+        "lib/net5.0/Microsoft.Toolkit.Mvvm.pdb",
+        "lib/net5.0/Microsoft.Toolkit.Mvvm.xml",
+        "lib/netstandard2.0/Microsoft.Toolkit.Mvvm.dll",
+        "lib/netstandard2.0/Microsoft.Toolkit.Mvvm.pdb",
+        "lib/netstandard2.0/Microsoft.Toolkit.Mvvm.xml",
+        "lib/netstandard2.1/Microsoft.Toolkit.Mvvm.dll",
+        "lib/netstandard2.1/Microsoft.Toolkit.Mvvm.pdb",
+        "lib/netstandard2.1/Microsoft.Toolkit.Mvvm.xml",
+        "microsoft.toolkit.mvvm.7.1.2.nupkg.sha512",
+        "microsoft.toolkit.mvvm.nuspec"
+      ]
+    },
     "Microsoft.VisualStudio.LiveShare/1.1.57": {
       "sha512": "Xb4KTz8sMmrjgIhzCa7Tmb39XmXi0M7n0FE9cKR0QpMGr0aj3ZhWrnMGYEGqBPJM7y0DdwCWujB+2fPsLB48vA==",
       "type": "package",
@@ -317,24 +352,25 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
+      "Microsoft.Toolkit.Mvvm >= 7.1.2",
       "Microsoft.VisualStudio.LiveShare >= 1.1.57",
       "System.Drawing.Common >= 6.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ZseZso\\.nuget\\packages\\": {}
+    "C:\\Users\\R András\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
+      "projectUniqueName": "C:\\Users\\R András\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
       "projectName": "SpaceBunnyJump",
-      "projectPath": "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
-      "packagesPath": "C:\\Users\\ZseZso\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\obj\\",
+      "projectPath": "C:\\Users\\R András\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
+      "packagesPath": "C:\\Users\\R András\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\R András\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ZseZso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\R András\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -360,6 +396,10 @@
       "net5.0-windows7.0": {
         "targetAlias": "net5.0-windows",
         "dependencies": {
+          "Microsoft.Toolkit.Mvvm": {
+            "target": "Package",
+            "version": "[7.1.2, )"
+          },
           "Microsoft.VisualStudio.LiveShare": {
             "target": "Package",
             "version": "[1.1.57, )"
