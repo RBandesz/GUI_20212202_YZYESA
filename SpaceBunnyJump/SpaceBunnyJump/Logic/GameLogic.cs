@@ -178,8 +178,12 @@ namespace SpaceBunnyJump.Logic
                 VisualMap[old_i, old_j] = GameItems.air;
             }
         }
-
         
+
+        public void PlatformPositions()
+        {
+
+        }
 
         public void Shoot(bool shoot)
         {
