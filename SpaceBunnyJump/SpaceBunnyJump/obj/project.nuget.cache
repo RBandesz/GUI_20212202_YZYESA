@@ -1,19 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "qaCyyLLTudRVixm6VYVEjLPIx3uGArtJop8J2VyrBBzPwX3LKmzV5gCzK+Z8Dvf4vrIZwnh+Ys6TK6pYo7QExg==",
+  "dgSpecHash": "lFj4lfRdp2lCPOMl3O2cKIuqEnf5y2efX56imzSGMeOC8va/qStYF5tPecOtq18j25p9tOavtFNg4u4SGDD6xg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
+  "projectFilePath": "C:\\Users\\R András\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ZseZso\\.nuget\\packages\\microsoft.toolkit.mvvm\\7.1.2\\microsoft.toolkit.mvvm.7.1.2.nupkg.sha512",
-    "C:\\Users\\ZseZso\\.nuget\\packages\\microsoft.visualstudio.liveshare\\1.1.57\\microsoft.visualstudio.liveshare.1.1.57.nupkg.sha512",
-    "C:\\Users\\ZseZso\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
-    "C:\\Users\\ZseZso\\.nuget\\packages\\system.composition\\1.1.0\\system.composition.1.1.0.nupkg.sha512",
-    "C:\\Users\\ZseZso\\.nuget\\packages\\system.composition.attributedmodel\\1.1.0\\system.composition.attributedmodel.1.1.0.nupkg.sha512",
-    "C:\\Users\\ZseZso\\.nuget\\packages\\system.composition.convention\\1.1.0\\system.composition.convention.1.1.0.nupkg.sha512",
-    "C:\\Users\\ZseZso\\.nuget\\packages\\system.composition.hosting\\1.1.0\\system.composition.hosting.1.1.0.nupkg.sha512",
-    "C:\\Users\\ZseZso\\.nuget\\packages\\system.composition.runtime\\1.1.0\\system.composition.runtime.1.1.0.nupkg.sha512",
-    "C:\\Users\\ZseZso\\.nuget\\packages\\system.composition.typedparts\\1.1.0\\system.composition.typedparts.1.1.0.nupkg.sha512",
-    "C:\\Users\\ZseZso\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
+    "C:\\Users\\R András\\.nuget\\packages\\microsoft.toolkit.mvvm\\7.1.2\\microsoft.toolkit.mvvm.7.1.2.nupkg.sha512",
+    "C:\\Users\\R András\\.nuget\\packages\\microsoft.visualstudio.liveshare\\1.1.57\\microsoft.visualstudio.liveshare.1.1.57.nupkg.sha512",
+    "C:\\Users\\R András\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\R András\\.nuget\\packages\\system.composition\\1.1.0\\system.composition.1.1.0.nupkg.sha512",
+    "C:\\Users\\R András\\.nuget\\packages\\system.composition.attributedmodel\\1.1.0\\system.composition.attributedmodel.1.1.0.nupkg.sha512",
+    "C:\\Users\\R András\\.nuget\\packages\\system.composition.convention\\1.1.0\\system.composition.convention.1.1.0.nupkg.sha512",
+    "C:\\Users\\R András\\.nuget\\packages\\system.composition.hosting\\1.1.0\\system.composition.hosting.1.1.0.nupkg.sha512",
+    "C:\\Users\\R András\\.nuget\\packages\\system.composition.runtime\\1.1.0\\system.composition.runtime.1.1.0.nupkg.sha512",
+    "C:\\Users\\R András\\.nuget\\packages\\system.composition.typedparts\\1.1.0\\system.composition.typedparts.1.1.0.nupkg.sha512",
+    "C:\\Users\\R András\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

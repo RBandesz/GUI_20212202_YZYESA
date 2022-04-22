@@ -3,22 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using SpaceBunnyJump.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
 
 namespace SpaceBunnyJump.Logic
 {
-    internal  class GameLogic : IGameModel, IGameControl
+    internal class GameLogic : IGameModel, IGameControl
     {
         public event EventHandler Changed;
         public event EventHandler GameOver;
-        Player players = new Player();
-        
+
+
         System.Windows.Size area;
 
         public GameLogic()
         {
-            VisualMap = new GameItems[500,800];
-            LogicMap = new GameItems[500,800];
+            VisualMap = new GameItems[500, 800];
+            LogicMap = new GameItems[500, 800];
             VisualMap = TestMapMaker(VisualMap, LogicMap);
 
         }
@@ -31,12 +47,17 @@ namespace SpaceBunnyJump.Logic
         {
             player, platform, enemy, bonus, air
         }
-        
+
 
         public enum Directions
         {
-            jump, left, right
+            left, right, //jump
         }
+        
+
+
+        public int force = 20;
+        public int grav = 5;
         public GameItems[,] VisualMap { get; set; }
         public GameItems[,] LogicMap { get; set; }
 
@@ -53,7 +74,7 @@ namespace SpaceBunnyJump.Logic
                         GameMap[i, j] = GameItems.platform;
                         MapMatrix[i, j] = GameItems.platform;
                     }
-                    else if (i  == 250 && j == 600)
+                    else if (i == 250 && j == 600)
                     {
                         GameMap[i, j] = GameItems.player;
                         MapMatrix[i, j] = GameItems.player;
@@ -80,7 +101,8 @@ namespace SpaceBunnyJump.Logic
             }
             return new int[] { -1, -1 };
         }
-        public void Move(Directions direction)
+
+        public void HorizontalMove(Directions direction)
         {
             var coords = WhereAmI();
             int i = coords[0];
@@ -89,32 +111,82 @@ namespace SpaceBunnyJump.Logic
             int old_j = j;
             switch (direction)
             {
-                case Directions.jump:
-                    if (j - 1 >= 0)
-                    {
-                        j=j-80;
-                    }
-                    break;
+                //case Directions.jump:
+                //    if (j - 1 >= 0)
+                //    {
+                //        j = j - 80;
+                //    }
+                //    break;
                 case Directions.left:
                     if (i - 1 >= 0)
                     {
-                        i=i-40;
+                        i = i - 40;
                     }
                     break;
                 case Directions.right:
                     if (i + 1 < LogicMap.GetLength(1))
                     {
-                        i=i+40;
+                        i = i + 40;
                     }
                     break;
                 default:
                     break;
+            }
+
+            if (VisualMap[i, j] == GameItems.air)
+            {
+                VisualMap[i, j] = GameItems.player;
+                VisualMap[old_i, old_j] = GameItems.air;
+            }
+        }
+
+        public void Jump(bool jump)
+        {
+            var coords = WhereAmI();
+            int i = coords[0];
+            int j = coords[1];
+            int old_i = i;
+            int old_j = j;
+            force = 15;
+            grav = -12;
+
+            if (jump && j - 80 >= 0)
+            {
+                j = j - 80;
+                force--;
+                if (force < 0)
+                {
+                    jump = false;
+                }
+            }
+            if (jump)
+            {
+                grav = -9;
+                force--;
+            }
+            else
+            {
+                grav = 12;
+            }
+
+            // if force is less than 0 
+            if (force < 0)
+            {
+                // set jumping boolean to false
+                jump = false;
             }
             if (VisualMap[i, j] == GameItems.air)
             {
                 VisualMap[i, j] = GameItems.player;
                 VisualMap[old_i, old_j] = GameItems.air;
             }
+        }
+
+        
+
+        public void Shoot(bool shoot)
+        {
+            throw new NotImplementedException();
         }
     }
 }

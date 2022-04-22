@@ -9,6 +9,8 @@ namespace SpaceBunnyJump.Logic
 {
     internal interface IGameControl
     {
-        void Move(Directions directions);
+        void HorizontalMove(Directions directions);
+        void Jump(bool jump);
+        void Shoot(bool shoot);
     }
 }

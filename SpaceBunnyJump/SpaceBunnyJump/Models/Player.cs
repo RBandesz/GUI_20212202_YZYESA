@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpaceBunnyJump.Models
 {
-    public class Player : ObservableObject
+    public class Player : ObservableRecipient
     {
         public int Width { get; set; }
         public int Height { get; set; }
@@ -40,7 +40,7 @@ namespace SpaceBunnyJump.Models
             get { return yposition; }
             set { SetProperty(ref yposition, value); }
         }
-
+        
         //public Player()
         //{
         //    this.Height = 100;
