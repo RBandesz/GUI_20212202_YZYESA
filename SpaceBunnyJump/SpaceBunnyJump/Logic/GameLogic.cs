@@ -33,8 +33,8 @@ namespace SpaceBunnyJump.Logic
 
         public GameLogic()
         {
-            VisualMap = new GameItems[500, 800];
-            LogicMap = new GameItems[500, 800];
+            VisualMap = new GameItems[800, 500];
+            LogicMap = new GameItems[800, 500];
             VisualMap = TestMapMaker(VisualMap, LogicMap);
 
         }
@@ -62,30 +62,27 @@ namespace SpaceBunnyJump.Logic
         public GameItems[,] LogicMap { get; set; }
 
 
-        private GameItems[,] TestMapMaker(GameItems[,] GameMap, GameItems[,] MapMatrix)
+        private GameItems[,] TestMapMaker(GameItems[,] VisualMap, GameItems[,] LogicMap)
         {
-            int counter = 0;
-            for (int i = 0; i < GameMap.GetLength(0); i++)
+            for (int i = 0; i < VisualMap.GetLength(0); i++)
             {
-                for (int j = 0; j < GameMap.GetLength(1); j++)
+                for (int j = 0; j < VisualMap.GetLength(1); j++)
                 {
                     if (i % 250 == 0 && j % 250 == 0)
                     {
-                        GameMap[i, j] = GameItems.platform;
-                        MapMatrix[i, j] = GameItems.platform;
+                        VisualMap[i, j] = GameItems.platform;
                     }
-                    else if (i == 250 && j == 600)
+                    else if (i == 400 && j == 250)
                     {
-                        GameMap[i, j] = GameItems.player;
-                        MapMatrix[i, j] = GameItems.player;
+                        VisualMap[i, j] = GameItems.player;
                     }
                     else
                     {
-                        GameMap[i, j] = GameItems.air;
+                        VisualMap[i, j] = GameItems.air;
                     }
                 }
             }
-            return GameMap;
+            return VisualMap;
         }
         private int[] WhereAmI()
         {
@@ -118,15 +115,15 @@ namespace SpaceBunnyJump.Logic
                 //    }
                 //    break;
                 case Directions.left:
-                    if (i - 1 >= 0)
+                    if (j - 40 >= 0)
                     {
-                        i = i - 40;
+                        j = j - 40;
                     }
                     break;
                 case Directions.right:
-                    if (i + 1 < LogicMap.GetLength(1))
+                    if (j + 40 < LogicMap.GetLength(1))
                     {
-                        i = i + 40;
+                        j = j + 40;
                     }
                     break;
                 default:
@@ -150,9 +147,9 @@ namespace SpaceBunnyJump.Logic
             force = 15;
             grav = -12;
 
-            if (jump && j - 80 >= 0)
+            if (jump && i - 80 >= 0)
             {
-                j = j - 80;
+                i = i - 80;
                 force--;
                 if (force < 0)
                 {

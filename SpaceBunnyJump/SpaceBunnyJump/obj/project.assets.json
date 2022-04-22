@@ -358,19 +358,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\R András\\.nuget\\packages\\": {}
+    "C:\\Users\\ZseZso\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\R András\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
+      "projectUniqueName": "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
       "projectName": "SpaceBunnyJump",
-      "projectPath": "C:\\Users\\R András\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
-      "packagesPath": "C:\\Users\\R András\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\R András\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\obj\\",
+      "projectPath": "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
+      "packagesPath": "C:\\Users\\ZseZso\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\R András\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ZseZso\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
