@@ -41,20 +41,34 @@ namespace SpaceBunnyJump.Logic
             VisualMap = new GameItems[800, 500];
             LogicMap = new GameItems[800, 500];
             //VisualMap = TestMapMaker(VisualMap, LogicMap);
-            player= new Player();
+            Platforms = new List<Platform>();
+            PlatformController.platforms = new System.Collections.Generic.List<Platform>();
+            PlatformController.startPlatformPosY = 400;
+            PlatformController.score = 0;
+            PlatformController.GenerateStartSequence();
+            Platforms = PlatformController.platforms;
 
+
+            this.player = new Player();
+
+        }
+        public void Gravity()
+        {
+            //player.physics.ApplyPhysics
+
+            int[] coords = new int[] { ((int)player.position.Y), ((int)player.position.X), };
+            int i = coords[0];
+            int j = coords[1];
+            j = j + 1;
+            player.position = new PointF(j, i);
+
+            Changed?.Invoke(this, null);
         }
 
         public void SetupSizes(System.Windows.Size area)
         {
             this.area = area;
-            Platforms = new List<Platform>();
-            PlatformController.platforms = new System.Collections.Generic.List<Platform>();
-            PlatformController.AddPlatform(new System.Drawing.PointF(100, 400));
-            PlatformController.startPlatformPosY = 400;
-            PlatformController.score = 0;
-            PlatformController.GenerateStartSequence();
-            Platforms = PlatformController.platforms;
+
  
         }
         public enum GameItems

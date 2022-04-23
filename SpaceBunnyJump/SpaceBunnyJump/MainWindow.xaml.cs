@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using SpaceBunnyJump.Classes;
 using SpaceBunnyJump.Logic;
 using SpaceBunnyJump.Models;
 
@@ -27,17 +28,10 @@ namespace SpaceBunnyJump
         GameEngine engine = new GameEngine();
         PlayerMovement movement;
         DispatcherTimer gameTimer = new DispatcherTimer();
+        Player player;
         public MainWindow()
         {
             InitializeComponent();
-            logic = new GameLogic();
-            display.SetupModel(logic);
-            display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
-            logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
-            movement = new PlayerMovement(logic);
-            gameTimer.Tick += GameTimer_Tick;
-            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
-            StartGame();
         }
         private void StartGame()
         {
@@ -47,15 +41,24 @@ namespace SpaceBunnyJump
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             engine.GameRunner();
+            logic.Gravity();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            logic = new GameLogic();
+            display.SetupModel(logic);
+            movement = new PlayerMovement(logic);
 
+
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
+            gameTimer.Tick += GameTimer_Tick;
+            gameTimer.Start();
+            StartGame();
 
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
-           
+
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -65,5 +68,12 @@ namespace SpaceBunnyJump
         }
 
 
+
+
+
+
+
+
     }
+
 }

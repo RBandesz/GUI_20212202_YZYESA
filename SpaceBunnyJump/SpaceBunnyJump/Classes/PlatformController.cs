@@ -21,14 +21,14 @@ namespace SpaceBunnyJump.Classes
 
         public static void GenerateStartSequence()
         {
-            PointF position1 = new PointF(700,250);
+            PointF position1 = new PointF(700, 250);
             Platform platform1 = new Platform(position1);
             platforms.Add(platform1);
             Random r = new Random();
             int x = 650;
             for (int i = 0; i < 9; i++)
             {
-                PointF position = new PointF(x, r.Next(5,420));
+                PointF position = new PointF(x, r.Next(5, 420));
                 Platform platform = new Platform(position);
                 platforms.Add(platform);
                 x = x - 80;

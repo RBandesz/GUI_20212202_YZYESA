@@ -15,7 +15,7 @@ namespace SpaceBunnyJump.Models
         public int Height { get; set; }
         public bool Alive { get; set; }
         
-        public Physics physics;
+        //public Physics physics;
 
         public PointF position { get; set; }
 
@@ -44,7 +44,7 @@ namespace SpaceBunnyJump.Models
             this.Ammunition = 5;
             this.Score = 0;
             this.position = new PointF(630, 250);
-            //physics = new Physics(new PointF(700, 250), new Size(40, 40));
+            //physics = new Physics(new PointF(630, 250), new Size(40, 40));
 
         }
     }
