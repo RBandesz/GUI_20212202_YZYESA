@@ -24,6 +24,7 @@ namespace SpaceBunnyJump.Classes
         public int sizeX;
         public int sizeY;
         public bool isTouchedByPlayer;
+        public System.Drawing.Rectangle hitbox;
 
         public Platform(PointF pos)
         {
@@ -31,6 +32,7 @@ namespace SpaceBunnyJump.Classes
             sizeY = 12;
             transform = new Transform(pos, new Size(sizeX, sizeY));
             isTouchedByPlayer = false;
+
         }
 
 

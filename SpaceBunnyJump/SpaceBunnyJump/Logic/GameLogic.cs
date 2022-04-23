@@ -32,6 +32,7 @@ namespace SpaceBunnyJump.Logic
         public System.Collections.Generic.List<Platform> Platforms { get; set; }
 
         public System.Windows.Size area { get; set; }
+        public System.Drawing.Rectangle playerHitbox { get; set; }
 
         public Player player { get; set; }
 
@@ -59,10 +60,21 @@ namespace SpaceBunnyJump.Logic
             int[] coords = new int[] { ((int)player.position.Y), ((int)player.position.X), };
             int i = coords[0];
             int j = coords[1];
-            j = j + 1;
+            
+            if (j < 750)
+            {
+                j = j + 1;
+            }
+
+            
             player.position = new PointF(j, i);
 
             Changed?.Invoke(this, null);
+        }
+        public void Hitbox()
+        {
+            System.Drawing.Rectangle playerHitbox = new System.Drawing.Rectangle();
+
         }
 
         public void SetupSizes(System.Windows.Size area)
@@ -179,12 +191,17 @@ namespace SpaceBunnyJump.Logic
 
             if (jump && j - 80 >= 0)
             {
-                j = j - 80;
-                force--;
-                if (force < 0)
+                //j = j - 80;
+                //force--;
+                //if (force < 0)
+                //{
+                //    jump = false;
+                //}
+                for (int a = 0; a < 10; a++)
                 {
-                    jump = false;
+                    j = j - 4;
                 }
+
             }
             if (jump)
             {

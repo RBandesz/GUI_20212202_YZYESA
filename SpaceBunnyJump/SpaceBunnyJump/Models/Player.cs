@@ -1,5 +1,4 @@
-﻿using DoodleJump.Classes;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,7 +13,9 @@ namespace SpaceBunnyJump.Models
         public int Width { get; set; }
         public int Height { get; set; }
         public bool Alive { get; set; }
-        
+
+        public System.Drawing.Rectangle hitbox { get; set; }
+
         //public Physics physics;
 
         public PointF position { get; set; }
@@ -45,6 +46,7 @@ namespace SpaceBunnyJump.Models
             this.Score = 0;
             this.position = new PointF(630, 250);
             //physics = new Physics(new PointF(630, 250), new Size(40, 40));
+            this.hitbox = new System.Drawing.Rectangle();
 
         }
     }
