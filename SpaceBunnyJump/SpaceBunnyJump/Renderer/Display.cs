@@ -15,7 +15,7 @@ namespace SpaceBunnyJump.Renderer
     internal class Display : FrameworkElement
     {
 
-        Size size; //= new Size(800, 500);
+        Size size; 
         IGameModel model;
         public void SetupModel(IGameModel model)
         {
@@ -70,25 +70,29 @@ namespace SpaceBunnyJump.Renderer
                 //drawingContext.DrawRectangle(Platform, null, new Rect(0, 120, 80, 30));
                 //drawingContext.DrawRectangle(Player, null, new Rect(0, 120, 60, 100));
 
-                for (int i = 0; i < model.VisualMap.GetLength(0); i++)
+                //for (int i = 0; i < model.VisualMap.GetLength(0); i++)
+                //{
+                //    for (int j = 0; j < model.VisualMap.GetLength(1); j++)
+                //    {
+                //        ImageBrush brush = new ImageBrush();
+                //        switch (model.VisualMap[i, j])
+                //        {
+                //            case GameLogic.GameItems.platform:
+                //                drawingContext.DrawRectangle(Platform, null, new Rect(j, i, 80, 30));
+                //                break;
+                //            case GameLogic.GameItems.player:
+                //                drawingContext.DrawRectangle(Player, null, new Rect(j, i, 60, 100));
+                //                break;
+                //        }
+
+
+                //    }
+                //}
+                foreach (var item in model.Platforms)
                 {
-                    for (int j = 0; j < model.VisualMap.GetLength(1); j++)
-                    {
-                        ImageBrush brush = new ImageBrush();
-                        switch (model.VisualMap[i, j])
-                        {
-                            case GameLogic.GameItems.platform:
-                                drawingContext.DrawRectangle(Platform, null, new Rect(j, i, 80, 30));
-                                break;
-                            case GameLogic.GameItems.player:
-                                drawingContext.DrawRectangle(Player, null, new Rect(j, i, 60, 100));
-                                break;
-                        }
-
-                        
-                    }
+                    drawingContext.DrawEllipse(Platform, null, new Point(item.transform.position.Y, item.transform.position.X), item.sizeX, item.sizeY);
                 }
-
+                drawingContext.DrawEllipse(Player, null, new Point(model.player.position.Y, model.player.position.X), model.player.Width, model.player.Height);
 
 
                 //drawingContext.Pop();

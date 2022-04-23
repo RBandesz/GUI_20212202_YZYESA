@@ -10,27 +10,28 @@ namespace SpaceBunnyJump.Classes
 {
     public class Platform
     {
-        //Image platform;
-        //public Transform transform;
-        //public int Xsize;
-        //public int Ysize;
-        public int Xpos;
-        public int Ypos;
-        public bool isTouchedByPlayer;
+        //public System.Drawing.Point Center { get; set; }
 
-        public Platform(int Xpos, int Ypos)
-        {
-            Xpos = this.Xpos;
-            Ypos = this.Ypos;
-            //transform = new Transform(position, new Size(Xsize, Ysize));
-            isTouchedByPlayer = false;
-        }
+        //public System.Drawing.Size platformSize { get; set; }
 
-        //public void DrawSprite(Graphics graphics)
+
+        //public Platform()
         //{
-        //    graphics.DrawImage(platform, transform.position.X, transform.position.Y, transform.size.Width, transform.size.Height);
+        //    platformSize = new System.Drawing.Size(80, 30);
         //}
 
+        public Transform transform;
+        public int sizeX;
+        public int sizeY;
+        public bool isTouchedByPlayer;
+
+        public Platform(PointF pos)
+        {
+            sizeX = 60;
+            sizeY = 12;
+            transform = new Transform(pos, new Size(sizeX, sizeY));
+            isTouchedByPlayer = false;
+        }
 
 
 
