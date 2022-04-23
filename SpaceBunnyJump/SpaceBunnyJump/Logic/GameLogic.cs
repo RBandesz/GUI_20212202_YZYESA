@@ -21,6 +21,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SpaceBunnyJump.Classes;
 using System.Drawing;
+using Point = System.Drawing.Point;
 
 namespace SpaceBunnyJump.Logic
 {
@@ -33,6 +34,7 @@ namespace SpaceBunnyJump.Logic
 
         public System.Windows.Size area { get; set; }
         public System.Drawing.Rectangle playerHitbox { get; set; }
+
 
         public Player player { get; set; }
 
@@ -56,25 +58,41 @@ namespace SpaceBunnyJump.Logic
         public void Gravity()
         {
             //player.physics.ApplyPhysics
-
             int[] coords = new int[] { ((int)player.position.Y), ((int)player.position.X), };
             int i = coords[0];
             int j = coords[1];
-            
-            if (j < 750)
+            if (j < 750 && !PlatformHitbox())
             {
                 j = j + 1;
             }
 
             
-            player.position = new PointF(j, i);
+            player.position = new Point(j, i);
+            player.Move();
 
             Changed?.Invoke(this, null);
         }
-        public void Hitbox()
+        public bool PlatformHitbox()
         {
-            System.Drawing.Rectangle playerHitbox = new System.Drawing.Rectangle();
-
+            bool platformstatus = false;
+            int i = 0;
+            while (platformstatus == false && i < Platforms.Count)
+            {
+                if (
+                    player.hitbox.IntersectsWith(Platforms[i].hitbox)
+                    //player.hitbox.Bottom == Platforms[i].hitbox.Top
+                    )
+                {
+                    platformstatus = true;
+                }
+                else
+                {
+                    platformstatus = false;
+                }
+                i++;
+                
+            }
+            return platformstatus;
         }
 
         public void SetupSizes(System.Windows.Size area)
@@ -169,7 +187,8 @@ namespace SpaceBunnyJump.Logic
                 default:
                     break;
             }
-            player.position = new PointF(j, i);
+            player.position = new Point(j, i);
+            player.Move();
 
             //if (VisualMap[i, j] == GameItems.air)
             //{
@@ -224,7 +243,8 @@ namespace SpaceBunnyJump.Logic
             //    VisualMap[i, j] = GameItems.player;
             //    VisualMap[old_i, old_j] = GameItems.air;
             //}
-            player.position = new PointF(j, i);
+            player.position = new Point(j, i);
+            player.Move();
         }
         
 

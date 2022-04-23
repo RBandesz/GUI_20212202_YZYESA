@@ -9,10 +9,10 @@ namespace SpaceBunnyJump.Classes
 {
     public class Transform
     {
-        public PointF position;
+        public Point position;
         public Size size;
 
-        public Transform(PointF position, Size size)
+        public Transform(Point position, Size size)
         {
             this.position = position;
             this.size = size;

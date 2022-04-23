@@ -13,7 +13,7 @@ namespace SpaceBunnyJump.Classes
         public static int startPlatformPosY = 400;
         public static int score = 0;
 
-        public static void AddPlatform(PointF position)
+        public static void AddPlatform(Point position)
         {
             Platform platform = new Platform(position);
             platforms.Add(platform);
@@ -21,14 +21,14 @@ namespace SpaceBunnyJump.Classes
 
         public static void GenerateStartSequence()
         {
-            PointF position1 = new PointF(700, 250);
+            Point position1 = new Point(700, 250);
             Platform platform1 = new Platform(position1);
             platforms.Add(platform1);
             Random r = new Random();
             int x = 650;
             for (int i = 0; i < 9; i++)
             {
-                PointF position = new PointF(x, r.Next(5, 420));
+                Point position = new Point(x, r.Next(5, 420));
                 Platform platform = new Platform(position);
                 platforms.Add(platform);
                 x = x - 80;
@@ -40,7 +40,7 @@ namespace SpaceBunnyJump.Classes
             //    int x = r.Next(100, 900);
             //    int y = r.Next(100, 500);
             //    startPlatformPosY -= y;
-            //    PointF position = new PointF(x, startPlatformPosY);
+            //    Point position = new Point(x, startPlatformPosY);
             //    Platform platform = new Platform(position);
             //    platforms.Add(platform);
             //}

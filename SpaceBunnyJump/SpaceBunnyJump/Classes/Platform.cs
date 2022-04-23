@@ -24,17 +24,21 @@ namespace SpaceBunnyJump.Classes
         public int sizeX;
         public int sizeY;
         public bool isTouchedByPlayer;
-        public System.Drawing.Rectangle hitbox;
+        public System.Windows.Rect hitbox { get; set; }
 
-        public Platform(PointF pos)
+        public Platform(Point pos)
         {
             sizeX = 60;
             sizeY = 12;
             transform = new Transform(pos, new Size(sizeX, sizeY));
             isTouchedByPlayer = false;
+            this.hitbox = new System.Windows.Rect(transform.position.Y + 6, transform.position.X - 30, 60, 12);
 
         }
-
+        public void Move()
+        {
+            this.hitbox = new System.Windows.Rect(transform.position.Y + 6, transform.position.X - 30, 60, 12);
+        }
 
 
     }
