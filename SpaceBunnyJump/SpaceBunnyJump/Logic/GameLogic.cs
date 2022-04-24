@@ -232,18 +232,19 @@ namespace SpaceBunnyJump.Logic
                         alien.Alive = false;
                         item.flyOut = true;
                     }
-
-                    if (shotlocation > 10)
-                    {
-                        shotlocation = shotlocation - 10;
-                        item.position = new Point(shotlocation, item.position.Y);
-                        item.Move();
-                    }
-                    else
-                    {
-                        item.flyOut = true;
-                    }
                 }
+
+                if (shotlocation > 10)
+                {
+                    shotlocation = shotlocation - 10;
+                    item.position = new Point(shotlocation, item.position.Y);
+                    item.Move();
+                }
+                else
+                {
+                   item.flyOut = true;
+                }
+                
 
 
             }
@@ -253,7 +254,11 @@ namespace SpaceBunnyJump.Logic
             for (int i = Aliens.Count - 1; i >= 0; i--)
             {
                 if (Aliens[i].Alive == false)
+                {
                     Aliens.RemoveAt(i);
+                    player.Score = player.Score + 100;
+                }
+                    
             }
         }
         public void BulletFlyOut()
@@ -271,7 +276,8 @@ namespace SpaceBunnyJump.Logic
             {
                 if (item.containAlien)
                 {
-                    Aliens.Add(new Alien(new Point(item.transform.position.X - 100, item.transform.position.Y- 40)));
+                    Aliens.Add(new Alien(new Point(item.transform.position.X - 100, item.transform.position.Y - 40)));
+
                 }
             }
         }

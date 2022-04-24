@@ -2,6 +2,7 @@
 using SpaceBunnyJump.Logic;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -64,6 +65,14 @@ namespace SpaceBunnyJump.Renderer
                 return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "bullet.png"), UriKind.RelativeOrAbsolute)));
             }
         }
+
+        public Brush Carrot
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "carrot.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
         public Brush HitboxTest
         {
             get
@@ -80,6 +89,7 @@ namespace SpaceBunnyJump.Renderer
                 double rectHeight = size.Height / model.VisualMap.GetLength(0);
 
                 drawingContext.DrawRectangle(SpaceBrush, null, new Rect(0, 0, size.Width, size.Height));
+                drawingContext.DrawRectangle(Carrot, null, new Rect(440, 0, 40, 40));
                 //drawingContext.DrawRectangle(Alien, null, new Rect(100, 150, 120, 100));
                 //drawingContext.DrawRectangle(Platform, null, new Rect(0, 120, 80, 30));
                 //drawingContext.DrawRectangle(Player, null, new Rect(0, 120, 60, 100));
@@ -102,9 +112,22 @@ namespace SpaceBunnyJump.Renderer
                 }
                 //drawingContext.DrawRectangle(HitboxTest, null, model.player.hitbox); //hitbox teszt
                 drawingContext.DrawEllipse(Player, null, new Point(model.player.position.Y, model.player.position.X), model.player.Width, model.player.Height);
-                
-                
 
+                //HUD
+                drawingContext.DrawRectangle(Carrot, null, new Rect(440, 0, 40, 40));
+                drawingContext.DrawText(new FormattedText(Convert.ToString(model.player.Ammo),
+                                CultureInfo.GetCultureInfo("en-us"),
+                                FlowDirection.LeftToRight,
+                                new Typeface("Verdana"),
+                                36, System.Windows.Media.Brushes.Orange),
+                                new System.Windows.Point(410, 0));
+
+                drawingContext.DrawText(new FormattedText(Convert.ToString(model.player.Score),
+                CultureInfo.GetCultureInfo("en-us"),
+                FlowDirection.LeftToRight,
+                new Typeface("Verdana"),
+                36, System.Windows.Media.Brushes.White),
+                new System.Windows.Point(0, 0));
                 //drawingContext.Pop();
 
             }
