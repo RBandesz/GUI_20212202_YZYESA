@@ -77,6 +77,7 @@ namespace SpaceBunnyJump.Logic
 
             BulletTravel();
             BulletFlyOut();
+            AlienDied();
 
             Changed?.Invoke(this, null);
         }
@@ -223,17 +224,36 @@ namespace SpaceBunnyJump.Logic
             foreach (var item in Shots)
             {
                 int shotlocation = item.position.X;
-                if (shotlocation > 0)
+
+                foreach (var alien in Aliens)
                 {
-                    shotlocation = shotlocation - 10;
-                    item.position = new Point(shotlocation, item.position.Y);
-                    item.Move();
-                }
-                else
-                {
-                    item.flyOut = true;
+                    if (item.hitbox.IntersectsWith(alien.hitbox))
+                    {
+                        alien.Alive = false;
+                        item.flyOut = true;
+                    }
+
+                    if (shotlocation > 10)
+                    {
+                        shotlocation = shotlocation - 10;
+                        item.position = new Point(shotlocation, item.position.Y);
+                        item.Move();
+                    }
+                    else
+                    {
+                        item.flyOut = true;
+                    }
                 }
 
+
+            }
+        }
+        public void AlienDied()
+        {
+            for (int i = Aliens.Count - 1; i >= 0; i--)
+            {
+                if (Aliens[i].Alive == false)
+                    Aliens.RemoveAt(i);
             }
         }
         public void BulletFlyOut()
