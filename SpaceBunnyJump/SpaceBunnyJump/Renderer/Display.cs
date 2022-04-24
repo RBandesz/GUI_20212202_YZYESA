@@ -57,6 +57,13 @@ namespace SpaceBunnyJump.Renderer
                 return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "alien.png"), UriKind.RelativeOrAbsolute)));
             }
         }
+        public Brush HitboxTest
+        {
+            get
+            {
+                return new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
+            }
+        }
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
@@ -91,9 +98,11 @@ namespace SpaceBunnyJump.Renderer
                 foreach (var item in model.Platforms)
                 {
                     drawingContext.DrawEllipse(Platform, null, new Point(item.transform.position.Y, item.transform.position.X), item.sizeX, item.sizeY);
+                    drawingContext.DrawRectangle(HitboxTest, null, item.hitbox);//hitbox teszt
                 }
+                drawingContext.DrawRectangle(HitboxTest, null, model.player.hitbox); //hitbox teszt
                 drawingContext.DrawEllipse(Player, null, new Point(model.player.position.Y, model.player.position.X), model.player.Width, model.player.Height);
-
+                
 
                 //drawingContext.Pop();
 

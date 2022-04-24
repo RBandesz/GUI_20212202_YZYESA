@@ -32,12 +32,12 @@ namespace SpaceBunnyJump.Classes
             sizeY = 12;
             transform = new Transform(pos, new Size(sizeX, sizeY));
             isTouchedByPlayer = false;
-            this.hitbox = new System.Windows.Rect(transform.position.Y + 6, transform.position.X - 30, 60, 12);
+            this.hitbox = new System.Windows.Rect(transform.position.Y - 55, transform.position.X - 6, 110, 12);
 
         }
         public void Move()
         {
-            this.hitbox = new System.Windows.Rect(transform.position.Y + 6, transform.position.X - 30, 60, 12);
+            this.hitbox = new System.Windows.Rect(transform.position.Y - 55, transform.position.X - 6, 110, 12);
         }
 
 

@@ -216,10 +216,7 @@ namespace SpaceBunnyJump.Logic
                 //{
                 //    jump = false;
                 //}
-                for (int a = 0; a < 10; a++)
-                {
-                    j = j - 4;
-                }
+                j = j - 80;
 
             }
             if (jump)

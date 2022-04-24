@@ -46,12 +46,12 @@ namespace SpaceBunnyJump.Models
             this.Score = 0;
             this.position = new Point(630, 250);
             //physics = new Physics(new Point(630, 250), new Size(40, 40));
-            hitbox = new System.Windows.Rect(position.Y + 40, position.X - 25, 50, 60);
+            hitbox = new System.Windows.Rect(position.Y - 30, position.X - 30, 60, 90);
 
         }
         public void Move()
         {
-            hitbox = new System.Windows.Rect(position.Y + 40, position.X - 25, 50, 60);
+            hitbox = new System.Windows.Rect(position.Y - 30, position.X - 30, 60, 90);
         }
     }
 }
