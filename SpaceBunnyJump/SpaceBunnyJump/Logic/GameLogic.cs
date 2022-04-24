@@ -63,7 +63,7 @@ namespace SpaceBunnyJump.Logic
             int j = coords[1];
             if (j < 750 && !PlatformHitbox())
             {
-                j = j + 1;
+                j = j + 5;
             }
 
             
@@ -79,8 +79,9 @@ namespace SpaceBunnyJump.Logic
             while (platformstatus == false && i < Platforms.Count)
             {
                 if (
-                    player.hitbox.IntersectsWith(Platforms[i].hitbox)
+                    player.hitbox.IntersectsWith(Platforms[i].hitbox) &&
                     //player.hitbox.Bottom == Platforms[i].hitbox.Top
+                    player.hitbox.BottomLeft.Y < Platforms[i].hitbox.BottomLeft.Y     
                     )
                 {
                     platformstatus = true;
@@ -119,46 +120,8 @@ namespace SpaceBunnyJump.Logic
         public GameItems[,] VisualMap { get; set; }
         public GameItems[,] LogicMap { get; set; }
 
-        //private GameItems[,] TestMapMaker(GameItems[,] VisualMap, GameItems[,] LogicMap)
-        //{
-        //    for (int i = 0; i < VisualMap.GetLength(0); i++)
-        //    {
-        //        for (int j = 0; j < VisualMap.GetLength(1); j++)
-        //        {
-        //            if (i % 250 == 0 && j % 250 == 0)
-        //            {
-        //                VisualMap[i, j] = GameItems.platform;
-        //            }
-        //            else if (i == 400 && j == 250)
-        //            {
-        //                VisualMap[i, j] = GameItems.player;
-        //            }
-        //            else
-        //            {
-        //                VisualMap[i, j] = GameItems.air;
-        //            }
-        //        }
-        //    }
-        //    return VisualMap;
-        //}
-        //private int[] WhereAmI()
-        //{
-        //    for (int i = 0; i < VisualMap.GetLength(0); i++)
-        //    {
-        //        for (int j = 0; j < VisualMap.GetLength(1); j++)
-        //        {
-        //            if (VisualMap[i, j] == GameItems.player)
-        //            {
-        //                return new int[] { i, j };
-        //            }
-        //        }
-        //    }
-        //    return new int[] { -1, -1 };
-        //}
-
         public void HorizontalMove(Directions direction)
         {
-            //var coords = WhereAmI();
             int[] coords = new int[] { ((int)player.position.Y), ((int)player.position.X), };
             int i = coords[0];
             int j = coords[1];
@@ -216,7 +179,7 @@ namespace SpaceBunnyJump.Logic
                 //{
                 //    jump = false;
                 //}
-                j = j - 80;
+                j = j - 160;
 
             }
             if (jump)
