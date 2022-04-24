@@ -140,11 +140,21 @@ namespace SpaceBunnyJump.Logic
                     {
                         i = i - 40;
                     }
+                    else
+                    {
+                        i = i - 40;
+                        i = (int)area.Width + i;
+                    }
                     break;
                 case Directions.right:
-                    if (i + 40 < LogicMap.GetLength(1))
+                    if (i + 40 < area.Width)
                     {
                         i = i + 40;
+                    }
+                    else
+                    {
+                        i = i + 40;
+                        i = i - (int)area.Width;
                     }
                     break;
                 default:
@@ -170,41 +180,42 @@ namespace SpaceBunnyJump.Logic
             int old_j = j;
             force = 15;
             grav = -12;
-
-            if (jump && j - 80 >= 0)
+            if (PlatformHitbox())
             {
-                //j = j - 80;
-                //force--;
-                //if (force < 0)
+                if (jump && j - 80 >= 0)
+                {
+                    //force--;
+                    //if (force < 0)
+                    //{
+                    //    jump = false;
+                    //}
+                    j = j - 160;
+
+                }
+                if (jump)
+                {
+                    grav = -9;
+                    force--;
+                }
+                else
+                {
+                    grav = 12;
+                }
+
+                // if force is less than 0 
+                if (force < 0)
+                {
+                    // set jumping boolean to false
+                    jump = false;
+                }
+                //if (VisualMap[i, j] == GameItems.air)
                 //{
-                //    jump = false;
+                //    VisualMap[i, j] = GameItems.player;
+                //    VisualMap[old_i, old_j] = GameItems.air;
                 //}
-                j = j - 160;
-
+                player.position = new Point(j, i);
+                player.Move();
             }
-            if (jump)
-            {
-                grav = -9;
-                force--;
-            }
-            else
-            {
-                grav = 12;
-            }
-
-            // if force is less than 0 
-            if (force < 0)
-            {
-                // set jumping boolean to false
-                jump = false;
-            }
-            //if (VisualMap[i, j] == GameItems.air)
-            //{
-            //    VisualMap[i, j] = GameItems.player;
-            //    VisualMap[old_i, old_j] = GameItems.air;
-            //}
-            player.position = new Point(j, i);
-            player.Move();
         }
         
 
