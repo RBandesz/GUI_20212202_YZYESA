@@ -32,8 +32,10 @@ namespace SpaceBunnyJump.Logic
 
         public System.Collections.Generic.List<Platform> Platforms { get; set; }
 
+        public System.Collections.Generic.List<Bullet> Shots { get; set; }
+
         public System.Windows.Size area { get; set; }
-        public System.Drawing.Rectangle playerHitbox { get; set; }
+        //public System.Drawing.Rectangle playerHitbox { get; set; }
 
 
         public Player player { get; set; }
@@ -45,6 +47,7 @@ namespace SpaceBunnyJump.Logic
             LogicMap = new GameItems[800, 500];
             //VisualMap = TestMapMaker(VisualMap, LogicMap);
             Platforms = new List<Platform>();
+            Shots = new List<Bullet>();
             PlatformController.platforms = new System.Collections.Generic.List<Platform>();
             PlatformController.startPlatformPosY = 400;
             PlatformController.score = 0;
@@ -55,7 +58,7 @@ namespace SpaceBunnyJump.Logic
             this.player = new Player();
 
         }
-        public void Gravity()
+        public void TimeUpdate()
         {
             //player.physics.ApplyPhysics
             int[] coords = new int[] { ((int)player.position.Y), ((int)player.position.X), };
@@ -66,9 +69,10 @@ namespace SpaceBunnyJump.Logic
                 j = j + 5;
             }
 
-            
             player.position = new Point(j, i);
             player.Move();
+            BulletTravel();
+            BulletFlyOut();
 
             Changed?.Invoke(this, null);
         }
@@ -110,7 +114,7 @@ namespace SpaceBunnyJump.Logic
 
         public enum Directions
         {
-            left, right, //jump
+            left, right, space//jump
         }
         
 
@@ -170,6 +174,7 @@ namespace SpaceBunnyJump.Logic
             //}
         }
 
+
         public void Jump(bool jump)
         {
             //var coords = WhereAmI();
@@ -226,7 +231,41 @@ namespace SpaceBunnyJump.Logic
 
         public void Shoot(bool shoot)
         {
-            throw new NotImplementedException();
+            if (player.Ammo > 0)
+            {
+                
+                Shots.Add(new Bullet(player.position));
+                player.Ammo = player.Ammo - 1;
+
+            }
+        }
+        public void BulletTravel()
+        {
+            foreach (var item in Shots)
+            {
+                int shotlocation = item.position.X;
+                if (shotlocation > 0)
+                {
+                    shotlocation = shotlocation - 10;
+                    item.position = new Point(shotlocation, item.position.Y);
+                    item.Move();
+                }
+                else
+                {
+                    item.flyOut = true;
+                }
+
+            }
+        }
+        public void BulletFlyOut()
+        {
+            foreach (var item in Shots)
+            {
+                if (item.flyOut)
+                {
+                    //Shots.Remove(item);
+                }
+            }
         }
     }
 }

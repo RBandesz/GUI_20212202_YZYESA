@@ -41,7 +41,7 @@ namespace SpaceBunnyJump
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             engine.GameRunner();
-            logic.Gravity();
+            logic.TimeUpdate();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

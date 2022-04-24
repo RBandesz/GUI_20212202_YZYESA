@@ -14,6 +14,8 @@ namespace SpaceBunnyJump.Models
         public int Height { get; set; }
         public bool Alive { get; set; }
 
+        public int Ammo { get; set; }
+
         public System.Windows.Rect hitbox { get; set; }
 
         //public Physics physics;
@@ -22,12 +24,6 @@ namespace SpaceBunnyJump.Models
 
 
 
-        private int ammunition;
-        public int Ammunition
-        {
-            get { return ammunition; }
-            set { SetProperty(ref ammunition, value); }
-        }
 
         private int score;
         public int Score
@@ -42,10 +38,9 @@ namespace SpaceBunnyJump.Models
             this.Height = 80;
             this.Width = 50;
             this.Alive = true;
-            this.Ammunition = 5;
+            this.Ammo = 5;
             this.Score = 0;
             this.position = new Point(630, 250);
-            //physics = new Physics(new Point(630, 250), new Size(40, 40));
             hitbox = new System.Windows.Rect(position.Y - 30, position.X - 30, 60, 90);
 
         }

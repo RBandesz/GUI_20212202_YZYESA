@@ -16,6 +16,8 @@ namespace SpaceBunnyJump.Logic
         event EventHandler Changed;
         public System.Collections.Generic.List<Platform> Platforms { get; set; }
 
+        public System.Collections.Generic.List<Bullet> Shots { get; set; }
+
         public Size area { get; set; }
 
         public Player player { get; set; }

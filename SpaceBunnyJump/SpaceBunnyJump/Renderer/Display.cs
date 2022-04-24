@@ -57,6 +57,13 @@ namespace SpaceBunnyJump.Renderer
                 return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "alien.png"), UriKind.RelativeOrAbsolute)));
             }
         }
+        public Brush Bullet
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "bullet.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
         public Brush HitboxTest
         {
             get
@@ -73,34 +80,23 @@ namespace SpaceBunnyJump.Renderer
                 double rectHeight = size.Height / model.VisualMap.GetLength(0);
 
                 drawingContext.DrawRectangle(SpaceBrush, null, new Rect(0, 0, size.Width, size.Height));
+                drawingContext.DrawEllipse(Bullet, null, new Point(100, 150), 15, 30);
                 //drawingContext.DrawRectangle(Alien, null, new Rect(400, 600, 60, 100));
                 //drawingContext.DrawRectangle(Platform, null, new Rect(0, 120, 80, 30));
                 //drawingContext.DrawRectangle(Player, null, new Rect(0, 120, 60, 100));
 
-                //for (int i = 0; i < model.VisualMap.GetLength(0); i++)
-                //{
-                //    for (int j = 0; j < model.VisualMap.GetLength(1); j++)
-                //    {
-                //        ImageBrush brush = new ImageBrush();
-                //        switch (model.VisualMap[i, j])
-                //        {
-                //            case GameLogic.GameItems.platform:
-                //                drawingContext.DrawRectangle(Platform, null, new Rect(j, i, 80, 30));
-                //                break;
-                //            case GameLogic.GameItems.player:
-                //                drawingContext.DrawRectangle(Player, null, new Rect(j, i, 60, 100));
-                //                break;
-                //        }
-
-
-                //    }
-                //}
                 foreach (var item in model.Platforms)
                 {
                     drawingContext.DrawEllipse(Platform, null, new Point(item.transform.position.Y, item.transform.position.X), item.sizeX, item.sizeY);
-                    drawingContext.DrawRectangle(HitboxTest, null, item.hitbox);//hitbox teszt
+                    //drawingContext.DrawRectangle(HitboxTest, null, item.hitbox);//hitbox teszt
                 }
-                drawingContext.DrawRectangle(HitboxTest, null, model.player.hitbox); //hitbox teszt
+
+                foreach (var item in model.Shots)
+                {
+                    drawingContext.DrawEllipse(Bullet, null, new Point(item.position.Y, item.position.X), item.Width, item.Height);
+                    //drawingContext.DrawRectangle(HitboxTest, null, item.hitbox);//hitbox teszt
+                }
+                //drawingContext.DrawRectangle(HitboxTest, null, model.player.hitbox); //hitbox teszt
                 drawingContext.DrawEllipse(Player, null, new Point(model.player.position.Y, model.player.position.X), model.player.Width, model.player.Height);
                 
 

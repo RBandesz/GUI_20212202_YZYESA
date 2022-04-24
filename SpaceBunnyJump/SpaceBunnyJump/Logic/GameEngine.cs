@@ -15,7 +15,7 @@ namespace SpaceBunnyJump.Logic
         public void GameRunner()
         {
             logic.Jump(playerMovement.Jump);
-            logic.Gravity();
+            logic.TimeUpdate();
         }
 
         public void Start()
