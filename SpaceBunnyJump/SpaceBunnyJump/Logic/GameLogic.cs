@@ -34,6 +34,8 @@ namespace SpaceBunnyJump.Logic
 
         public System.Collections.Generic.List<Bullet> Shots { get; set; }
 
+        public System.Collections.Generic.List<Alien> Aliens { get; set; }
+
         public System.Windows.Size area { get; set; }
         //public System.Drawing.Rectangle playerHitbox { get; set; }
 
@@ -48,12 +50,13 @@ namespace SpaceBunnyJump.Logic
             //VisualMap = TestMapMaker(VisualMap, LogicMap);
             Platforms = new List<Platform>();
             Shots = new List<Bullet>();
+            Aliens = new List<Alien>();
             PlatformController.platforms = new System.Collections.Generic.List<Platform>();
             PlatformController.startPlatformPosY = 400;
             PlatformController.score = 0;
             PlatformController.GenerateStartSequence();
             Platforms = PlatformController.platforms;
-
+            platformExtra();
 
             this.player = new Player();
 
@@ -71,6 +74,7 @@ namespace SpaceBunnyJump.Logic
 
             player.position = new Point(j, i);
             player.Move();
+
             BulletTravel();
             BulletFlyOut();
 
@@ -189,40 +193,15 @@ namespace SpaceBunnyJump.Logic
             {
                 if (jump && j - 80 >= 0)
                 {
-                    //force--;
-                    //if (force < 0)
-                    //{
-                    //    jump = false;
-                    //}
                     j = j - 160;
 
                 }
-                if (jump)
-                {
-                    grav = -9;
-                    force--;
-                }
-                else
-                {
-                    grav = 12;
-                }
 
-                // if force is less than 0 
-                if (force < 0)
-                {
-                    // set jumping boolean to false
-                    jump = false;
-                }
-                //if (VisualMap[i, j] == GameItems.air)
-                //{
-                //    VisualMap[i, j] = GameItems.player;
-                //    VisualMap[old_i, old_j] = GameItems.air;
-                //}
                 player.position = new Point(j, i);
                 player.Move();
             }
         }
-        
+
 
         public void PlatformPositions()
         {
@@ -259,11 +238,20 @@ namespace SpaceBunnyJump.Logic
         }
         public void BulletFlyOut()
         {
-            foreach (var item in Shots)
+            for (int i = Shots.Count - 1; i >= 0; i--)
             {
-                if (item.flyOut)
+                if (Shots[i].flyOut)
+                    Shots.RemoveAt(i);
+            }
+        }
+
+        public void platformExtra()
+        {
+            foreach (var item in Platforms)
+            {
+                if (item.containAlien)
                 {
-                    //Shots.Remove(item);
+                    Aliens.Add(new Alien(new Point(item.transform.position.X - 100, item.transform.position.Y- 40)));
                 }
             }
         }

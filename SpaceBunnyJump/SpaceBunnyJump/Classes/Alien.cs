@@ -1,33 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
 
 namespace SpaceBunnyJump.Classes
 {
-    public class Bullet
+    class Alien
     {
         public int Width { get; set; }
         public int Height { get; set; }
         public Point position { get; set; }
         public System.Windows.Rect hitbox { get; set; }
 
-        public bool flyOut { get; set; }
 
 
-        public Bullet(Point position)
+        public Alien(Point position)
         {
-            this.Width = 15;
-            this.Height = 30;
+            this.Width = 120;
+            this.Height = 100;
             this.position = position;
-            flyOut = false;
+        }
 
-        }
-        public void Move()
-        {
-            hitbox = new System.Windows.Rect(position.Y - 8, position.X - 30, 15, 25);
-        }
+
     }
 }

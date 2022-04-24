@@ -18,6 +18,8 @@ namespace SpaceBunnyJump.Logic
 
         public System.Collections.Generic.List<Bullet> Shots { get; set; }
 
+        public System.Collections.Generic.List<Alien> Aliens { get; set; }
+
         public Size area { get; set; }
 
         public Player player { get; set; }

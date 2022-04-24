@@ -24,6 +24,7 @@ namespace SpaceBunnyJump.Classes
         public int sizeX;
         public int sizeY;
         public bool isTouchedByPlayer;
+        public bool containAlien { get; set; }
         public System.Windows.Rect hitbox { get; set; }
 
         public Platform(Point pos)

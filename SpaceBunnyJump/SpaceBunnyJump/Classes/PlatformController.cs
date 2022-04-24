@@ -30,7 +30,14 @@ namespace SpaceBunnyJump.Classes
             {
                 Point position = new Point(x, r.Next(5, 420));
                 Platform platform = new Platform(position);
+
+                if (i == 5)
+                {
+                    platform.containAlien = true;
+                }
+
                 platforms.Add(platform);
+
                 x = x - 80;
             }
 
