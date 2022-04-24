@@ -71,6 +71,15 @@ namespace SpaceBunnyJump.Logic
             {
                 j = j + 5;
             }
+            if (j == 750)
+            {
+                player.Alive = false;
+            }
+
+            if (AlienHitbox())
+            {
+                player.Alive = false;
+            }
 
             player.position = new Point(j, i);
             player.Move();
@@ -78,6 +87,11 @@ namespace SpaceBunnyJump.Logic
             BulletTravel();
             BulletFlyOut();
             AlienDied();
+
+            if (player.Alive == false)
+            {
+                GameOver?.Invoke(this, null);
+            }
 
             Changed?.Invoke(this, null);
         }
@@ -89,7 +103,6 @@ namespace SpaceBunnyJump.Logic
             {
                 if (
                     player.hitbox.IntersectsWith(Platforms[i].hitbox) &&
-                    //player.hitbox.Bottom == Platforms[i].hitbox.Top
                     player.hitbox.BottomLeft.Y < Platforms[i].hitbox.BottomLeft.Y     
                     )
                 {
@@ -104,6 +117,26 @@ namespace SpaceBunnyJump.Logic
             }
             return platformstatus;
         }
+        public bool AlienHitbox()
+        {
+            bool hit = false;
+            int i = 0;
+            while (hit == false && i < Aliens.Count)
+            {
+                if (player.hitbox.IntersectsWith(Aliens[i].hitbox))
+                {
+                    hit = true;
+                }
+                else
+                {
+                    hit = false;
+                }
+                i++;
+
+            }
+            return hit;
+        }
+
 
         public void SetupSizes(System.Windows.Size area)
         {

@@ -48,5 +48,6 @@ namespace SpaceBunnyJump.Models
         {
             hitbox = new System.Windows.Rect(position.Y - 30, position.X - 30, 60, 90);
         }
+
     }
 }

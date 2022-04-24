@@ -40,6 +40,7 @@ namespace SpaceBunnyJump
         }
         private void GameTimer_Tick(object sender, EventArgs e)
         {
+
             engine.GameRunner();
             logic.TimeUpdate();
         }
@@ -47,6 +48,9 @@ namespace SpaceBunnyJump
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             logic = new GameLogic();
+
+            logic.GameOver += Logic_GameOver;
+
             display.SetupModel(logic);
             movement = new PlayerMovement(logic);
 
@@ -59,6 +63,15 @@ namespace SpaceBunnyJump
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
 
+        }
+
+        private void Logic_GameOver(object? sender, EventArgs e)
+        {
+            var result = MessageBox.Show("You Died");
+            if (result == MessageBoxResult.OK)
+            {
+                this.Close();
+            }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
