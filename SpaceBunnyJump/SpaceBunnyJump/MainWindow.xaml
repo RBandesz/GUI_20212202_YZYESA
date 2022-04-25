@@ -8,6 +8,10 @@
         mc:Ignorable="d"
         Title="SpaceBunnyJump" Height="800" Width="500" Loaded="Window_Loaded" ResizeMode="NoResize" KeyDown="Window_KeyDown"> 
     <Grid x:Name="grid">
-        <renderer:Display x:Name="display" />
+        <ScrollViewer x:Name="CanvasViewer" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+            <Canvas x:Name="Canvas" Width="500">
+                <renderer:Display x:Name="display" />
+            </Canvas>
+        </ScrollViewer>
     </Grid>
 </Window>

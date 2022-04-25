@@ -29,6 +29,9 @@ namespace SpaceBunnyJump
         PlayerMovement movement;
         DispatcherTimer gameTimer = new DispatcherTimer();
         Player player;
+
+        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -63,6 +66,7 @@ namespace SpaceBunnyJump
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             logic.SetupSizes(new System.Windows.Size((int)grid.ActualWidth, (int)grid.ActualHeight));
 
+            
         }
 
         private void Logic_GameOver(object? sender, EventArgs e)
