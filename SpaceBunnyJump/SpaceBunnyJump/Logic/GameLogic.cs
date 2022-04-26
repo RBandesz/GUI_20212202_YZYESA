@@ -63,6 +63,8 @@ namespace SpaceBunnyJump.Logic
         }
         public void TimeUpdate()
         {
+            FollowPlayer();
+
             int[] coords = new int[] { ((int)player.position.Y), ((int)player.position.X), };
             int i = coords[0];
             int j = coords[1];
@@ -89,7 +91,7 @@ namespace SpaceBunnyJump.Logic
             player.Move();
 
 
-            FollowPlayer();
+            
             BulletTravel();
             BulletFlyOut();
             AlienDied();
@@ -361,6 +363,9 @@ namespace SpaceBunnyJump.Logic
 
             if (player.position.X < 350)
             {
+                PlatformController.GenerateRandomSequence();
+                Platforms = PlatformController.platforms;
+
                 foreach (var item in Platforms)
                 {
                     item.transform.position.X += 100;
@@ -387,17 +392,25 @@ namespace SpaceBunnyJump.Logic
                     item.Move();
                 }
 
-                PlatformController.GenerateRandomSequence();
-                Platforms = PlatformController.platforms;
+                /*foreach (var item in Platforms)
+                {
+                    if (item.transform.position.X > 800)
+                    {
+                        item.visible = false;
+                    }
+                }
+
+                RemovePlatform();*/
             }            
 
         }
 
         public void RemovePlatform()
         {
-            foreach (var item in collection)
+            for (int i = Platforms.Count - 1; i >= 0; i--)
             {
-
+                if (Platforms[i].visible == false)
+                    Platforms.RemoveAt(i);
             }
         }
     }

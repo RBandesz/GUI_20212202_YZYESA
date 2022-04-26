@@ -62,27 +62,6 @@ namespace SpaceBunnyJump.Classes
                 Platform platform = new Platform(position);
                 platforms.Add(platform);
             }
-
-            /*for (int i = 0; i < 11; i++)
-            {
-                Point position = new Point(x, r.Next(30, 450));
-                Platform platform = new Platform(position);
-
-                if (i == 5)
-                {
-                    platform.bonus = Platform.BonusItem.alien;
-                }
-                if (i == 3)
-                {
-                    platform.bonus = Platform.BonusItem.carrot;
-                }
-
-                platforms.Add(platform);
-
-                x = x - r.Next(60, 100);
-            }*/
-
-
         }
 
 
