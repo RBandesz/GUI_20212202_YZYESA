@@ -85,9 +85,6 @@ namespace SpaceBunnyJump.Renderer
             base.OnRender(drawingContext);
             if (model != null && size.Width > 50 && size.Height > 50)
             {
-                double rectWidth = size.Width / model.VisualMap.GetLength(1);
-                double rectHeight = size.Height / model.VisualMap.GetLength(0);
-
                 drawingContext.DrawRectangle(SpaceBrush, null, new Rect(0, 0, size.Width, size.Height));
                 drawingContext.DrawRectangle(Carrot, null, new Rect(440, 0, 40, 40));
                 //drawingContext.DrawRectangle(Alien, null, new Rect(100, 150, 120, 100));
@@ -102,6 +99,11 @@ namespace SpaceBunnyJump.Renderer
                 foreach (var item in model.Aliens)
                 {
                     drawingContext.DrawRectangle(Alien, null, new Rect(item.position.Y, item.position.X, item.Width, item.Height));
+                    //drawingContext.DrawRectangle(HitboxTest, null, item.hitbox);//hitbox teszt
+                }
+                foreach (var item in model.Carrots)
+                {
+                    drawingContext.DrawRectangle(Carrot, null, new Rect(item.position.Y, item.position.X, item.Width, item.Height));
                     //drawingContext.DrawRectangle(HitboxTest, null, item.hitbox);//hitbox teszt
                 }
 
@@ -128,7 +130,7 @@ namespace SpaceBunnyJump.Renderer
                 new Typeface("Verdana"),
                 36, System.Windows.Media.Brushes.White),
                 new System.Windows.Point(0, 0));
-                //drawingContext.Pop();
+                
 
             }
         }

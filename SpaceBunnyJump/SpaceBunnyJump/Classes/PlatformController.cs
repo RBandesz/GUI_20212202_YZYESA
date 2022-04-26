@@ -33,7 +33,11 @@ namespace SpaceBunnyJump.Classes
 
                 if (i == 5)
                 {
-                    platform.containAlien = true;
+                    platform.bonus = Platform.BonusItem.alien;
+                }
+                if (i == 3)
+                {
+                    platform.bonus = Platform.BonusItem.carrot;
                 }
 
                 platforms.Add(platform);

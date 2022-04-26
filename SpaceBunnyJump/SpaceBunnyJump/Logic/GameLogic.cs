@@ -36,6 +36,8 @@ namespace SpaceBunnyJump.Logic
 
         public System.Collections.Generic.List<Alien> Aliens { get; set; }
 
+        public System.Collections.Generic.List<Carrot> Carrots { get; set; }
+
         public System.Windows.Size area { get; set; }
         //public System.Drawing.Rectangle playerHitbox { get; set; }
 
@@ -45,12 +47,10 @@ namespace SpaceBunnyJump.Logic
 
         public GameLogic()
         {
-            VisualMap = new GameItems[800, 500];
-            LogicMap = new GameItems[800, 500];
-            //VisualMap = TestMapMaker(VisualMap, LogicMap);
             Platforms = new List<Platform>();
             Shots = new List<Bullet>();
             Aliens = new List<Alien>();
+            Carrots = new List<Carrot>();
             PlatformController.platforms = new System.Collections.Generic.List<Platform>();
             PlatformController.startPlatformPosY = 400;
             PlatformController.score = 0;
@@ -63,7 +63,6 @@ namespace SpaceBunnyJump.Logic
         }
         public void TimeUpdate()
         {
-            //player.physics.ApplyPhysics
             int[] coords = new int[] { ((int)player.position.Y), ((int)player.position.X), };
             int i = coords[0];
             int j = coords[1];
@@ -74,6 +73,11 @@ namespace SpaceBunnyJump.Logic
             if (j == 750)
             {
                 player.Alive = false;
+            }
+
+            if (CarrotHitbox())
+            {
+                player.Ammo = player.Ammo + 2;
             }
 
             if (AlienHitbox())
@@ -87,6 +91,7 @@ namespace SpaceBunnyJump.Logic
             BulletTravel();
             BulletFlyOut();
             AlienDied();
+            CarrotRemove();
 
             if (player.Alive == false)
             {
@@ -137,6 +142,27 @@ namespace SpaceBunnyJump.Logic
             return hit;
         }
 
+        public bool CarrotHitbox()
+        {
+            bool hit = false;
+            int i = 0;
+            while (hit == false && i < Carrots.Count)
+            {
+                if (player.hitbox.IntersectsWith(Carrots[i].hitbox))
+                {
+                    hit = true;
+                    Carrots[i].Alive = false;
+                }
+                else
+                {
+                    hit = false;
+                }
+                i++;
+
+            }
+            return hit;
+        }
+
 
         public void SetupSizes(System.Windows.Size area)
         {
@@ -144,10 +170,10 @@ namespace SpaceBunnyJump.Logic
 
  
         }
-        public enum GameItems
-        {
-            player, platform, enemy, bonus, air
-        }
+        //public enum GameItems
+        //{
+        //    player, platform, enemy, bonus, air
+        //}
 
 
         public enum Directions
@@ -157,10 +183,6 @@ namespace SpaceBunnyJump.Logic
         
 
 
-        public int force = 20;
-        public int grav = 5;
-        public GameItems[,] VisualMap { get; set; }
-        public GameItems[,] LogicMap { get; set; }
 
         public void HorizontalMove(Directions direction)
         {
@@ -221,8 +243,6 @@ namespace SpaceBunnyJump.Logic
             int j = coords[1];
             int old_i = i;
             int old_j = j;
-            force = 15;
-            grav = -12;
             if (PlatformHitbox())
             {
                 if (jump && j - 80 >= 0)
@@ -294,6 +314,20 @@ namespace SpaceBunnyJump.Logic
                     
             }
         }
+
+        public void CarrotRemove()
+        {
+            for (int i = Carrots.Count - 1; i >= 0; i--)
+            {
+                if (Carrots[i].Alive == false)
+                {
+                    Carrots.RemoveAt(i);
+                    player.Score = player.Score + 10;
+                }
+
+            }
+        }
+
         public void BulletFlyOut()
         {
             for (int i = Shots.Count - 1; i >= 0; i--)
@@ -307,9 +341,14 @@ namespace SpaceBunnyJump.Logic
         {
             foreach (var item in Platforms)
             {
-                if (item.containAlien)
+                if (item.bonus == Platform.BonusItem.alien)
                 {
                     Aliens.Add(new Alien(new Point(item.transform.position.X - 100, item.transform.position.Y - 40)));
+
+                }
+                if (item.bonus == Platform.BonusItem.carrot)
+                {
+                    Carrots.Add(new Carrot(new Point(item.transform.position.X-70, item.transform.position.Y-10)));
 
                 }
             }

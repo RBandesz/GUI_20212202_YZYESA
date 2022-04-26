@@ -12,13 +12,14 @@ namespace SpaceBunnyJump.Logic
 {
     internal interface IGameModel
     {
-        GameItems[,] VisualMap { get; set; }
         event EventHandler Changed;
         public System.Collections.Generic.List<Platform> Platforms { get; set; }
 
         public System.Collections.Generic.List<Bullet> Shots { get; set; }
 
         public System.Collections.Generic.List<Alien> Aliens { get; set; }
+        public System.Collections.Generic.List<Carrot> Carrots { get; set; }
+
 
         public Size area { get; set; }
 

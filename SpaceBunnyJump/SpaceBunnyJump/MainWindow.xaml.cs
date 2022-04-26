@@ -71,7 +71,7 @@ namespace SpaceBunnyJump
 
         private void Logic_GameOver(object? sender, EventArgs e)
         {
-            var result = MessageBox.Show("You Died!");
+            var result = MessageBox.Show("You Died! Score: " + logic.player.Score);
             if (result == MessageBoxResult.OK)
             {
                 this.Close();

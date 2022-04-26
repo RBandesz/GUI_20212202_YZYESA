@@ -24,6 +24,14 @@ namespace SpaceBunnyJump.Classes
         public int sizeX;
         public int sizeY;
         public bool isTouchedByPlayer;
+
+        public enum BonusItem 
+        {
+            alien, carrot, nothing
+        } 
+
+        public BonusItem bonus { get; set; }
+
         public bool containAlien { get; set; }
         public System.Windows.Rect hitbox { get; set; }
 
@@ -34,13 +42,13 @@ namespace SpaceBunnyJump.Classes
             transform = new Transform(pos, new Size(sizeX, sizeY));
             isTouchedByPlayer = false;
             this.hitbox = new System.Windows.Rect(transform.position.Y - 55, transform.position.X - 6, 110, 12);
+            bonus = BonusItem.nothing;
 
         }
         public void Move()
         {
             this.hitbox = new System.Windows.Rect(transform.position.Y - 55, transform.position.X - 6, 110, 12);
         }
-
 
     }
 }
