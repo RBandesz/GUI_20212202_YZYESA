@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Felhasználó\\Documents\\Egyetem\\2021-2022-2\\Prog4\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj": {}
+    "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Felhasználó\\Documents\\Egyetem\\2021-2022-2\\Prog4\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj": {
+    "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Felhasználó\\Documents\\Egyetem\\2021-2022-2\\Prog4\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
+        "projectUniqueName": "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
         "projectName": "SpaceBunnyJump",
-        "projectPath": "C:\\Users\\Felhasználó\\Documents\\Egyetem\\2021-2022-2\\Prog4\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
-        "packagesPath": "C:\\Users\\Felhasználó\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Felhasználó\\Documents\\Egyetem\\2021-2022-2\\Prog4\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\obj\\",
+        "projectPath": "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\SpaceBunnyJump.csproj",
+        "packagesPath": "C:\\Users\\ZseZso\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ZseZso\\Documents\\GitHub\\GUI_20212202_YZYESA\\SpaceBunnyJump\\SpaceBunnyJump\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Felhasználó\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ZseZso\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

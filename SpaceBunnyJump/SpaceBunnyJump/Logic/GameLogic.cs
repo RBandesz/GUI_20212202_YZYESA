@@ -363,9 +363,12 @@ namespace SpaceBunnyJump.Logic
 
             if (player.position.X < 350)
             {
-                PlatformController.GenerateRandomSequence();
-                Platforms = PlatformController.platforms;
-
+                ////PlatformController.GenerateRandomSequence();
+                ////Platforms = PlatformController.platforms;
+                while (Platforms.Last().transform.position.X > 10)
+                {
+                    Platforms.Add(PlatformController.GenerateRandomPlatform(Platforms.Last().transform.position.X));
+                }
                 foreach (var item in Platforms)
                 {
                     item.transform.position.X += 100;
