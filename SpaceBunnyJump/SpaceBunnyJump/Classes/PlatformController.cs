@@ -51,8 +51,19 @@ namespace SpaceBunnyJump.Classes
         public static void GenerateRandomSequence()
         {
             Random r = new Random();
-            int x = 750;
-            for (int i = 0; i < 11; i++)
+            //int x = 750;
+            int lastPlatPos = platforms.Last().transform.position.X;
+
+            while (lastPlatPos > 10 )
+            {
+                
+                lastPlatPos -= r.Next(60, 100);
+                Point position = new Point(lastPlatPos, r.Next(30, 450));
+                Platform platform = new Platform(position);
+                platforms.Add(platform);
+            }
+
+            /*for (int i = 0; i < 11; i++)
             {
                 Point position = new Point(x, r.Next(30, 450));
                 Platform platform = new Platform(position);
@@ -68,8 +79,8 @@ namespace SpaceBunnyJump.Classes
 
                 platforms.Add(platform);
 
-                x = x - r.Next(60, 80);
-            }
+                x = x - r.Next(60, 100);
+            }*/
 
 
         }

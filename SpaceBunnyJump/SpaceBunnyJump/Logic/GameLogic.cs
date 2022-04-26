@@ -386,8 +386,19 @@ namespace SpaceBunnyJump.Logic
                     item.position = new Point(newCarrotPosition, item.position.Y);
                     item.Move();
                 }
-            }
 
+                PlatformController.GenerateRandomSequence();
+                Platforms = PlatformController.platforms;
+            }            
+
+        }
+
+        public void RemovePlatform()
+        {
+            foreach (var item in collection)
+            {
+
+            }
         }
     }
 }
