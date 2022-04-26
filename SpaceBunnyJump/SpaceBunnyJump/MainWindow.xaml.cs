@@ -46,6 +46,7 @@ namespace SpaceBunnyJump
 
             engine.GameRunner();
             logic.TimeUpdate();
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -85,7 +86,7 @@ namespace SpaceBunnyJump
         }
 
 
-
+        
 
 
 

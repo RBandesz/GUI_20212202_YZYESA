@@ -88,6 +88,8 @@ namespace SpaceBunnyJump.Logic
             player.position = new Point(j, i);
             player.Move();
 
+
+            FollowPlayer();
             BulletTravel();
             BulletFlyOut();
             AlienDied();
@@ -352,6 +354,40 @@ namespace SpaceBunnyJump.Logic
 
                 }
             }
+        }
+
+        public void FollowPlayer()
+        {
+
+            if (player.position.X < 350)
+            {
+                foreach (var item in Platforms)
+                {
+                    item.transform.position.X += 100;
+                    item.Move();
+                }
+
+                int newPosition = player.position.X + 100;
+                player.position = new Point(newPosition, player.position.Y);
+                player.Move();
+
+
+
+                foreach (var item in Aliens)
+                {
+                    int newAlienPosition = item.position.X + 100;
+                    item.position = new Point(newAlienPosition, item.position.Y);
+                    item.Move();
+                }
+
+                foreach (var item in Carrots)
+                {
+                    int newCarrotPosition = item.position.X + 100;
+                    item.position = new Point(newCarrotPosition, item.position.Y);
+                    item.Move();
+                }
+            }
+
         }
     }
 }

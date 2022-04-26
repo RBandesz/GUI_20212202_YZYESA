@@ -25,7 +25,10 @@ namespace SpaceBunnyJump.Classes
             this.Alive = true;
         }
 
-
+        public void Move()
+        {
+            hitbox = new System.Windows.Rect(position.Y + 5, position.X + 5, 30, 45);
+        }
 
 
 
