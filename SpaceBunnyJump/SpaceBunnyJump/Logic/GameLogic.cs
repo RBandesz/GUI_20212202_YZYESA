@@ -52,8 +52,8 @@ namespace SpaceBunnyJump.Logic
             Aliens = new List<Alien>();
             Carrots = new List<Carrot>();
             PlatformController.platforms = new System.Collections.Generic.List<Platform>();
-            PlatformController.startPlatformPosY = 400;
-            PlatformController.score = 0;
+            //PlatformController.startPlatformPosY = 400;
+            //PlatformController.score = 0;
             PlatformController.GenerateStartSequence();
             Platforms = PlatformController.platforms;
             platformExtra();

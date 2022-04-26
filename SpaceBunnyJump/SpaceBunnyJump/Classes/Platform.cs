@@ -10,20 +10,12 @@ namespace SpaceBunnyJump.Classes
 {
     public class Platform
     {
-        //public System.Drawing.Point Center { get; set; }
-
-        //public System.Drawing.Size platformSize { get; set; }
-
-
-        //public Platform()
-        //{
-        //    platformSize = new System.Drawing.Size(80, 30);
-        //}
-
         public Transform transform;
         public int sizeX;
         public int sizeY;
-        public bool isTouchedByPlayer;
+        //public bool isTouchedByPlayer;
+
+        public bool visible { get; set; }
 
         public enum BonusItem 
         {
@@ -40,9 +32,10 @@ namespace SpaceBunnyJump.Classes
             sizeX = 60;
             sizeY = 12;
             transform = new Transform(pos, new Size(sizeX, sizeY));
-            isTouchedByPlayer = false;
+            //isTouchedByPlayer = false;
             this.hitbox = new System.Windows.Rect(transform.position.Y - 55, transform.position.X - 6, 110, 12);
             bonus = BonusItem.nothing;
+            visible = true;
 
         }
         public void Move()

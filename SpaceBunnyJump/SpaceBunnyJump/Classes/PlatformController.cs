@@ -10,8 +10,8 @@ namespace SpaceBunnyJump.Classes
     public static class PlatformController
     {
         public static List<Platform> platforms;
-        public static int startPlatformPosY = 400;
-        public static int score = 0;
+        //public static int startPlatformPosY = 400;
+        //public static int score = 0;
 
         public static void AddPlatform(Point position)
         {
@@ -28,7 +28,7 @@ namespace SpaceBunnyJump.Classes
             int x = 650;
             for (int i = 0; i < 9; i++)
             {
-                Point position = new Point(x, r.Next(5, 420));
+                Point position = new Point(x, r.Next(30, 450));
                 Platform platform = new Platform(position);
 
                 if (i == 5)
@@ -42,19 +42,36 @@ namespace SpaceBunnyJump.Classes
 
                 platforms.Add(platform);
 
-                x = x - 80;
+                x = x - r.Next(60,80);
             }
 
-            //Random r = new Random();
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    int x = r.Next(100, 900);
-            //    int y = r.Next(100, 500);
-            //    startPlatformPosY -= y;
-            //    Point position = new Point(x, startPlatformPosY);
-            //    Platform platform = new Platform(position);
-            //    platforms.Add(platform);
-            //}
+            
+        }
+
+        public static void GenerateRandomSequence()
+        {
+            Random r = new Random();
+            int x = 750;
+            for (int i = 0; i < 11; i++)
+            {
+                Point position = new Point(x, r.Next(30, 450));
+                Platform platform = new Platform(position);
+
+                if (i == 5)
+                {
+                    platform.bonus = Platform.BonusItem.alien;
+                }
+                if (i == 3)
+                {
+                    platform.bonus = Platform.BonusItem.carrot;
+                }
+
+                platforms.Add(platform);
+
+                x = x - r.Next(60, 80);
+            }
+
+
         }
 
 
