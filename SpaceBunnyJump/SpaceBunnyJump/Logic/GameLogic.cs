@@ -64,6 +64,7 @@ namespace SpaceBunnyJump.Logic
         public void TimeUpdate()
         {
             FollowPlayer();
+            
 
             int[] coords = new int[] { ((int)player.position.Y), ((int)player.position.X), };
             int i = coords[0];
@@ -345,15 +346,20 @@ namespace SpaceBunnyJump.Logic
         {
             foreach (var item in Platforms)
             {
-                if (item.bonus == Platform.BonusItem.alien)
+                if (item.BonusAlreadyLoaded == false)
                 {
-                    Aliens.Add(new Alien(new Point(item.transform.position.X - 100, item.transform.position.Y - 40)));
 
-                }
-                if (item.bonus == Platform.BonusItem.carrot)
-                {
-                    Carrots.Add(new Carrot(new Point(item.transform.position.X-70, item.transform.position.Y-10)));
 
+                    if (item.bonus == Platform.BonusItem.alien)
+                    {
+                        Aliens.Add(new Alien(new Point(item.transform.position.X - 100, item.transform.position.Y - 40)));
+
+                    }
+                    if (item.bonus == Platform.BonusItem.carrot)
+                    {
+                        Carrots.Add(new Carrot(new Point(item.transform.position.X - 70, item.transform.position.Y - 10)));
+
+                    }
                 }
             }
         }
@@ -363,6 +369,10 @@ namespace SpaceBunnyJump.Logic
 
             if (player.position.X < 350)
             {
+                foreach (var item in Platforms)
+                {
+                    item.BonusAlreadyLoaded = true;
+                }
                 ////PlatformController.GenerateRandomSequence();
                 ////Platforms = PlatformController.platforms;
                 while (Platforms.Last().transform.position.X > 10)
@@ -395,15 +405,17 @@ namespace SpaceBunnyJump.Logic
                     item.Move();
                 }
 
-                /*foreach (var item in Platforms)
+                foreach (var item in Platforms)
                 {
                     if (item.transform.position.X > 800)
                     {
                         item.visible = false;
                     }
                 }
-
-                RemovePlatform();*/
+                platformExtra();
+                RemovePlatform();
+                player.Score = player.Score + 50;
+                
             }            
 
         }

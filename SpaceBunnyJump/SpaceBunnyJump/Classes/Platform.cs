@@ -27,6 +27,8 @@ namespace SpaceBunnyJump.Classes
         public bool containAlien { get; set; }
         public System.Windows.Rect hitbox { get; set; }
 
+        public bool BonusAlreadyLoaded{ get; set; }
+
         public Platform(Point pos)
         {
             sizeX = 60;
@@ -36,6 +38,7 @@ namespace SpaceBunnyJump.Classes
             this.hitbox = new System.Windows.Rect(transform.position.Y - 55, transform.position.X - 6, 110, 12);
             bonus = BonusItem.nothing;
             visible = true;
+            BonusAlreadyLoaded = false;
 
         }
         public void Move()

@@ -51,17 +51,18 @@ namespace SpaceBunnyJump.Classes
         public static Platform GenerateRandomPlatform(int lastPlatPos)
         {
             Random r = new Random();
-            //int x = 750;
-            //int lastPlatPos = platforms.Last().transform.position.X;
-
-            Platform platform;
-
-    
-                
-            lastPlatPos -= r.Next(60, 100);
+            Platform platform;      
+            lastPlatPos -= r.Next(60, 80);
             Point position = new Point(lastPlatPos, r.Next(30, 450));
             platform = new Platform(position);
-
+            if (r.Next(0,20) > 17)
+            {
+                platform.bonus = Platform.BonusItem.alien;
+            }
+            else if (r.Next(0,20)> 15)
+            {
+                platform.bonus = Platform.BonusItem.carrot;
+            }
             return platform;
         }
 
