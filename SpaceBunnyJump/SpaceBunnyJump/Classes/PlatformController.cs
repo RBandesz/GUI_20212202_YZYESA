@@ -37,7 +37,7 @@ namespace SpaceBunnyJump.Classes
                 }
                 if (i == 3)
                 {
-                    platform.bonus = Platform.BonusItem.shoe;
+                    platform.bonus = Platform.BonusItem.carrot;
                 }
 
                 platforms.Add(platform);
@@ -55,18 +55,28 @@ namespace SpaceBunnyJump.Classes
             lastPlatPos -= r.Next(60, 80);
             Point position = new Point(lastPlatPos, r.Next(30, 450));
             platform = new Platform(position);
-            if (r.Next(0,20) > 17)
+            int random = r.Next(0, 101);
+            if (random > 95 )
             {
                 platform.bonus = Platform.BonusItem.alien;
             }
-            else if (r.Next(0,20)> 15)
+            else if (random > 70 && random < 76)
             {
                 platform.bonus = Platform.BonusItem.carrot;
             }
-            else if (r.Next(0, 20) > 18)
+            else if (random > 75 && random < 81)
             {
                 platform.bonus = Platform.BonusItem.diamond;
             }
+            else if (random > 80 && random < 86)
+            {
+                platform.bonus = Platform.BonusItem.shield;
+            }
+            else if (random > 85 && random < 91)
+            {
+                platform.bonus = Platform.BonusItem.shoe;
+            }
+
             return platform;
         }
 

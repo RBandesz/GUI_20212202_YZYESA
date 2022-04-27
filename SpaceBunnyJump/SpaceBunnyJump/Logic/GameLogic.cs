@@ -114,7 +114,7 @@ namespace SpaceBunnyJump.Logic
             player.position = new Point(j, i);
             player.Move();
 
-
+            MovingAlien();
             
             BulletTravel();
             BulletFlyOut();
@@ -131,6 +131,34 @@ namespace SpaceBunnyJump.Logic
             }
 
             Changed?.Invoke(this, null);
+        }
+        public void MovingAlien()
+        {
+            foreach (var item in Aliens)
+            {
+                if (item.Moving)
+                {
+                    int pos = item.position.Y;
+                    if (item.Side)
+                    {
+                        if (pos < 420)
+                        {
+                            pos=pos + 3;
+                        }
+                        else item.Side = false;
+                    }
+                    else if (item.Side == false)
+                    {
+                        if (pos > 10)
+                        {
+                            pos= pos - 3;
+                        }
+                        else item.Side = true;
+                    }
+                    item.position = new Point(item.position.X, pos);
+                    item.Move();
+                }
+            }
         }
         public bool PlatformHitbox()
         {
