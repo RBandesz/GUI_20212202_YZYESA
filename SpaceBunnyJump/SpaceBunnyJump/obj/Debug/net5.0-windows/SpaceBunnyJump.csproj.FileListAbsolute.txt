@@ -127,3 +127,6 @@ C:\Users\Felhasználó\Documents\Egyetem\2021-2022-2\Prog4\GUI_20212202_YZYESA\S
 C:\Users\Felhasználó\Documents\Egyetem\2021-2022-2\Prog4\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\ref\SpaceBunnyJump.dll
 C:\Users\Felhasználó\Documents\Egyetem\2021-2022-2\Prog4\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump.pdb
 C:\Users\Felhasználó\Documents\Egyetem\2021-2022-2\Prog4\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\obj\Debug\net5.0-windows\SpaceBunnyJump.genruntimeconfig.cache
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Textures\diamond.png
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Textures\shield.png
+C:\Users\ZseZso\Documents\GitHub\GUI_20212202_YZYESA\SpaceBunnyJump\SpaceBunnyJump\bin\Debug\net5.0-windows\Textures\shoe.png

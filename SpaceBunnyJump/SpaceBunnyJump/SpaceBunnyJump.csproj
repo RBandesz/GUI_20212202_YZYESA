@@ -12,8 +12,11 @@
     <None Remove="Textures\background.png" />
     <None Remove="Textures\bullet.png" />
     <None Remove="Textures\carrot.png" />
+    <None Remove="Textures\diamond.png" />
     <None Remove="Textures\platform.png" />
     <None Remove="Textures\player.png" />
+    <None Remove="Textures\shield.png" />
+    <None Remove="Textures\shoe.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,7 +32,16 @@
     <Content Include="Textures\carrot.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Textures\diamond.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Textures\player.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Textures\shield.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Textures\shoe.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

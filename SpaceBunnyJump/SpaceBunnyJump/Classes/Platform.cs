@@ -19,7 +19,7 @@ namespace SpaceBunnyJump.Classes
 
         public enum BonusItem 
         {
-            alien, carrot, nothing
+            alien, carrot, diamond, shoe, shield, nothing
         } 
 
         public BonusItem bonus { get; set; }

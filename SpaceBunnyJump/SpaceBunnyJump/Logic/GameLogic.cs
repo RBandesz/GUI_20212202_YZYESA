@@ -38,6 +38,10 @@ namespace SpaceBunnyJump.Logic
 
         public System.Collections.Generic.List<Carrot> Carrots { get; set; }
 
+        public System.Collections.Generic.List<Diamond> Diamonds { get; set; }
+
+        public System.Collections.Generic.List<Shield> Shields { get; set; }
+
         public System.Windows.Size area { get; set; }
         //public System.Drawing.Rectangle playerHitbox { get; set; }
 
@@ -51,6 +55,8 @@ namespace SpaceBunnyJump.Logic
             Shots = new List<Bullet>();
             Aliens = new List<Alien>();
             Carrots = new List<Carrot>();
+            Diamonds = new List<Diamond>();
+            Shields = new List<Shield>();
             PlatformController.platforms = new System.Collections.Generic.List<Platform>();
             //PlatformController.startPlatformPosY = 400;
             //PlatformController.score = 0;
@@ -80,12 +86,22 @@ namespace SpaceBunnyJump.Logic
 
             if (CarrotHitbox())
             {
-                player.Ammo = player.Ammo + 2;
+                player.Ammo = player.Ammo + 1;
+            }
+            if (DiamondHitbox())
+            {
+                player.Score = player.Score + 10;
             }
 
             if (AlienHitbox())
             {
                 player.Alive = false;
+              
+            }
+
+            if (ShieldHitbox())
+            {
+                player.Shield = true;
             }
 
             player.position = new Point(j, i);
@@ -97,6 +113,9 @@ namespace SpaceBunnyJump.Logic
             BulletFlyOut();
             AlienDied();
             CarrotRemove();
+            RemoveDiamonds();
+            RemoveShields();
+
 
             if (player.Alive == false)
             {
@@ -133,9 +152,16 @@ namespace SpaceBunnyJump.Logic
             int i = 0;
             while (hit == false && i < Aliens.Count)
             {
-                if (player.hitbox.IntersectsWith(Aliens[i].hitbox))
+                if (player.hitbox.IntersectsWith(Aliens[i].hitbox) && player.Shield == false)
                 {
                     hit = true;
+                }
+                else if(player.hitbox.IntersectsWith(Aliens[i].hitbox) && player.Shield == true)
+                {
+                    hit = false;
+                    Aliens[i].Alive = false;
+                    AlienDied();
+                    player.Shield = false;
                 }
                 else
                 {
@@ -157,6 +183,46 @@ namespace SpaceBunnyJump.Logic
                 {
                     hit = true;
                     Carrots[i].Alive = false;
+                }
+                else
+                {
+                    hit = false;
+                }
+                i++;
+
+            }
+            return hit;
+        }
+        public bool DiamondHitbox()
+        {
+            bool hit = false;
+            int i = 0;
+            while (hit == false && i < Diamonds.Count)
+            {
+                if (player.hitbox.IntersectsWith(Diamonds[i].hitbox))
+                {
+                    hit = true;
+                    Diamonds[i].Alive = false;
+                }
+                else
+                {
+                    hit = false;
+                }
+                i++;
+
+            }
+            return hit;
+        }
+        public bool ShieldHitbox()
+        {
+            bool hit = false;
+            int i = 0;
+            while (hit == false && i < Shields.Count)
+            {
+                if (player.hitbox.IntersectsWith(Shields[i].hitbox))
+                {
+                    hit = true;
+                    Shields[i].Alive = false;
                 }
                 else
                 {
@@ -262,10 +328,6 @@ namespace SpaceBunnyJump.Logic
         }
 
 
-        public void PlatformPositions()
-        {
-
-        }
 
         public void Shoot(bool shoot)
         {
@@ -327,7 +389,6 @@ namespace SpaceBunnyJump.Logic
                 if (Carrots[i].Alive == false)
                 {
                     Carrots.RemoveAt(i);
-                    player.Score = player.Score + 10;
                 }
 
             }
@@ -358,6 +419,16 @@ namespace SpaceBunnyJump.Logic
                     if (item.bonus == Platform.BonusItem.carrot)
                     {
                         Carrots.Add(new Carrot(new Point(item.transform.position.X - 70, item.transform.position.Y - 10)));
+
+                    }
+                    if (item.bonus == Platform.BonusItem.diamond)
+                    {
+                        Diamonds.Add(new Diamond(new Point(item.transform.position.X - 30, item.transform.position.Y - 5)));
+
+                    }
+                    if (item.bonus == Platform.BonusItem.shield)
+                    {
+                        Shields.Add(new Shield(new Point(item.transform.position.X - 70, item.transform.position.Y-20)));
 
                     }
                 }
@@ -404,6 +475,19 @@ namespace SpaceBunnyJump.Logic
                     item.position = new Point(newCarrotPosition, item.position.Y);
                     item.Move();
                 }
+                foreach (var item in Diamonds)
+                {
+                    int newDiamondPosition = item.position.X + 100;
+                    item.position = new Point(newDiamondPosition, item.position.Y);
+                    item.Move();
+                }
+
+                foreach (var item in Shields)
+                {
+                    int newShieldPosition = item.position.X + 100;
+                    item.position = new Point(newShieldPosition, item.position.Y);
+                    item.Move();
+                }
 
                 foreach (var item in Platforms)
                 {
@@ -412,8 +496,12 @@ namespace SpaceBunnyJump.Logic
                         item.visible = false;
                     }
                 }
+
+
                 platformExtra();
                 RemovePlatform();
+                RemoveDiamonds();
+                RemoveShields();
                 player.Score = player.Score + 50;
                 
             }            
@@ -426,6 +514,29 @@ namespace SpaceBunnyJump.Logic
             {
                 if (Platforms[i].visible == false)
                     Platforms.RemoveAt(i);
+            }
+        }
+        public void RemoveDiamonds()
+        {
+            for (int i = Diamonds.Count - 1; i >= 0; i--)
+            {
+                if (Diamonds[i].Alive == false)
+                {
+                    player.Score = player.Score + 20;
+                    Diamonds.RemoveAt(i);
+                }
+
+            }
+        }
+        public void RemoveShields()
+        {
+            for (int i = Shields.Count - 1; i >= 0; i--)
+            {
+                if (Shields[i].Alive == false)
+                {
+                    Shields.RemoveAt(i);
+                }
+
             }
         }
     }

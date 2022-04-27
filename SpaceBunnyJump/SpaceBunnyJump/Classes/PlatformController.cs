@@ -37,7 +37,7 @@ namespace SpaceBunnyJump.Classes
                 }
                 if (i == 3)
                 {
-                    platform.bonus = Platform.BonusItem.carrot;
+                    platform.bonus = Platform.BonusItem.shield;
                 }
 
                 platforms.Add(platform);
@@ -62,6 +62,10 @@ namespace SpaceBunnyJump.Classes
             else if (r.Next(0,20)> 15)
             {
                 platform.bonus = Platform.BonusItem.carrot;
+            }
+            else if (r.Next(0, 20) > 18)
+            {
+                platform.bonus = Platform.BonusItem.diamond;
             }
             return platform;
         }

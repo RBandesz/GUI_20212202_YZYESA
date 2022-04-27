@@ -12,7 +12,10 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/background.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/bullet.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/carrot.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/diamond.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/player.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/shield.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/shoe.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/platform.png")]
 
 

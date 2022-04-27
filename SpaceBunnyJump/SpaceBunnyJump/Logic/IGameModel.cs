@@ -20,6 +20,9 @@ namespace SpaceBunnyJump.Logic
         public System.Collections.Generic.List<Alien> Aliens { get; set; }
         public System.Collections.Generic.List<Carrot> Carrots { get; set; }
 
+        public System.Collections.Generic.List<Diamond> Diamonds { get; set; }
+
+        public System.Collections.Generic.List<Shield> Shields { get; set; }
 
         public Size area { get; set; }
 
