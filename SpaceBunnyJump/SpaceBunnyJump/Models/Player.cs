@@ -18,9 +18,9 @@ namespace SpaceBunnyJump.Models
 
         public bool Shield { get; set; }
 
-        public System.Windows.Rect hitbox { get; set; }
+        public int Shoe { get; set; }
 
-        //public Physics physics;
+        public System.Windows.Rect hitbox { get; set; }
 
         public Point position { get; set; }
 
@@ -45,6 +45,7 @@ namespace SpaceBunnyJump.Models
             this.position = new Point(630, 250);
             hitbox = new System.Windows.Rect(position.Y - 30, position.X - 30, 60, 90);
             this.Shield = false;
+            this.Shoe = 0;
 
         }
         public void Move()

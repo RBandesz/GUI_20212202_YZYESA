@@ -87,6 +87,14 @@ namespace SpaceBunnyJump.Renderer
                 return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "shield.png"), UriKind.RelativeOrAbsolute)));
             }
         }
+
+        public Brush Shoe
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Textures", "shoe.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
         public Brush HitboxTest
         {
             get
@@ -136,14 +144,24 @@ namespace SpaceBunnyJump.Renderer
                     drawingContext.DrawRectangle(Shield, null, new Rect(item.position.Y, item.position.X, item.Width, item.Height));
                     //drawingContext.DrawRectangle(HitboxTest, null, item.hitbox);//hitbox teszt
                 }
+                foreach (var item in model.Shoes)
+                {
+                    drawingContext.DrawRectangle(Shoe, null, new Rect(item.position.Y, item.position.X, item.Width, item.Height));
+                    //drawingContext.DrawRectangle(HitboxTest, null, item.hitbox);//hitbox teszt
+                }
                 //drawingContext.DrawRectangle(HitboxTest, null, model.player.hitbox); //hitbox teszt
                 drawingContext.DrawEllipse(Player, null, new Point(model.player.position.Y, model.player.position.X), model.player.Width, model.player.Height);
 
                 //HUD
                 if (model.player.Shield)
                 {
-                    drawingContext.DrawRectangle(Shield, null, new Rect(370, 0, 30, 30));
+                    drawingContext.DrawRectangle(Shield, null, new Rect(350, 0, 30, 30));
                 }
+                if (model.player.Shoe > 0)
+                {
+                    drawingContext.DrawRectangle(Shoe, null, new Rect(300, 0, 30, 30));
+                }
+
                 drawingContext.DrawRectangle(Carrot, null, new Rect(440, 0, 40, 40));
                 drawingContext.DrawText(new FormattedText(Convert.ToString(model.player.Ammo),
                                 CultureInfo.GetCultureInfo("en-us"),

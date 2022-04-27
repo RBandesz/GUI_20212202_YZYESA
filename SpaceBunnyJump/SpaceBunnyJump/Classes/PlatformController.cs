@@ -37,7 +37,7 @@ namespace SpaceBunnyJump.Classes
                 }
                 if (i == 3)
                 {
-                    platform.bonus = Platform.BonusItem.shield;
+                    platform.bonus = Platform.BonusItem.shoe;
                 }
 
                 platforms.Add(platform);

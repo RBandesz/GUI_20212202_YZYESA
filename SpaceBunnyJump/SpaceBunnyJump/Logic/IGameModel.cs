@@ -24,6 +24,8 @@ namespace SpaceBunnyJump.Logic
 
         public System.Collections.Generic.List<Shield> Shields { get; set; }
 
+        public System.Collections.Generic.List<Shoe> Shoes { get; set; }
+
         public Size area { get; set; }
 
         public Player player { get; set; }

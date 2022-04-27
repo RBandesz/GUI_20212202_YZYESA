@@ -42,6 +42,8 @@ namespace SpaceBunnyJump.Logic
 
         public System.Collections.Generic.List<Shield> Shields { get; set; }
 
+        public System.Collections.Generic.List<Shoe> Shoes { get; set; }
+
         public System.Windows.Size area { get; set; }
         //public System.Drawing.Rectangle playerHitbox { get; set; }
 
@@ -57,6 +59,7 @@ namespace SpaceBunnyJump.Logic
             Carrots = new List<Carrot>();
             Diamonds = new List<Diamond>();
             Shields = new List<Shield>();
+            Shoes = new List<Shoe>();
             PlatformController.platforms = new System.Collections.Generic.List<Platform>();
             //PlatformController.startPlatformPosY = 400;
             //PlatformController.score = 0;
@@ -96,12 +99,16 @@ namespace SpaceBunnyJump.Logic
             if (AlienHitbox())
             {
                 player.Alive = false;
-              
             }
 
             if (ShieldHitbox())
             {
                 player.Shield = true;
+            }
+
+            if (ShoeHitbox())
+            {
+                player.Shoe = player.Shoe+3;
             }
 
             player.position = new Point(j, i);
@@ -115,6 +122,7 @@ namespace SpaceBunnyJump.Logic
             CarrotRemove();
             RemoveDiamonds();
             RemoveShields();
+            RemoveShoes();
 
 
             if (player.Alive == false)
@@ -209,7 +217,6 @@ namespace SpaceBunnyJump.Logic
                     hit = false;
                 }
                 i++;
-
             }
             return hit;
         }
@@ -223,6 +230,26 @@ namespace SpaceBunnyJump.Logic
                 {
                     hit = true;
                     Shields[i].Alive = false;
+                }
+                else
+                {
+                    hit = false;
+                }
+                i++;
+
+            }
+            return hit;
+        }
+        public bool ShoeHitbox()
+        {
+            bool hit = false;
+            int i = 0;
+            while (hit == false && i < Shoes.Count)
+            {
+                if (player.hitbox.IntersectsWith(Shoes[i].hitbox))
+                {
+                    hit = true;
+                    Shoes[i].Alive = false;
                 }
                 else
                 {
@@ -316,10 +343,22 @@ namespace SpaceBunnyJump.Logic
             int old_j = j;
             if (PlatformHitbox())
             {
-                if (jump && j - 80 >= 0)
+                if (player.Shoe == 0)
                 {
-                    j = j - 160;
+                    if (jump && j - 160 >= 0)
+                    {
+                        j = j - 160;
 
+                    }
+
+                }
+                else
+                {
+                    if (jump && j - 200 >= 0)
+                    {
+                        j = j - 200;
+                        player.Shoe = player.Shoe - 1;
+                    }
                 }
 
                 player.position = new Point(j, i);
@@ -431,6 +470,12 @@ namespace SpaceBunnyJump.Logic
                         Shields.Add(new Shield(new Point(item.transform.position.X - 70, item.transform.position.Y-20)));
 
                     }
+
+                    if (item.bonus == Platform.BonusItem.shoe)
+                    {
+                        Shoes.Add(new Shoe(new Point(item.transform.position.X - 70, item.transform.position.Y - 20)));
+
+                    }
                 }
             }
         }
@@ -489,6 +534,13 @@ namespace SpaceBunnyJump.Logic
                     item.Move();
                 }
 
+                foreach (var item in Shoes)
+                {
+                    int newShoePosition = item.position.X + 100;
+                    item.position = new Point(newShoePosition, item.position.Y);
+                    item.Move();
+                }
+
                 foreach (var item in Platforms)
                 {
                     if (item.transform.position.X > 800)
@@ -502,6 +554,7 @@ namespace SpaceBunnyJump.Logic
                 RemovePlatform();
                 RemoveDiamonds();
                 RemoveShields();
+                RemoveShoes();
                 player.Score = player.Score + 50;
                 
             }            
@@ -535,6 +588,17 @@ namespace SpaceBunnyJump.Logic
                 if (Shields[i].Alive == false)
                 {
                     Shields.RemoveAt(i);
+                }
+
+            }
+        }
+        public void RemoveShoes()
+        {
+            for (int i = Shoes.Count - 1; i >= 0; i--)
+            {
+                if (Shoes[i].Alive == false)
+                {
+                    Shoes.RemoveAt(i);
                 }
 
             }

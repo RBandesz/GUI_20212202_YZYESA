@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpaceBunnyJump.Classes
 {
-    class Diamond
+    public class Diamond
     {
         public int Width { get; set; }
         public int Height { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpaceBunnyJump.Classes
 {
-    public class Shield
+    public class Shoe
     {
         public int Width { get; set; }
         public int Height { get; set; }
@@ -16,7 +16,7 @@ namespace SpaceBunnyJump.Classes
 
         public bool Alive { get; set; }
 
-        public Shield(Point position)
+        public Shoe(Point position)
         {
             this.Width = 55;
             this.Height = 55;
